@@ -1,0 +1,14 @@
+/home/adrian/Documents/CLion-2019.2/clion-2019.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/adrian/CLionProjects/Proyecto1_Datos2
+-- Boost version: 1.65.1
+-- Found the following Boost libraries:
+--   regex
+--   date_time
+--   system
+--   filesystem
+--   thread
+--   graph
+--   chrono
+--   atomic
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug
