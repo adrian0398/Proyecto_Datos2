@@ -35,3 +35,9 @@ add_definitions(${GTK3_CFLAGS_OTHER})
 
 target_link_libraries(Proyecto1_Datos2 ${GTK3_LIBRARIES})
 
+pkg_search_module(GST REQUIRED gstreamer-1.0  libgstvideo-1.0)
+
+target_include_directories(Proyecto1_Datos2  PRIVATE ${GST_INCLUDE_DIRS})
+target_link_libraries(Proyecto1_Datos2  ${GST_LIBRARIES})
+
+target_link_libraries(Proyecto1_Datos2  gstvideo-1.0)

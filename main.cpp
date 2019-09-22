@@ -4,12 +4,24 @@
 #include <sstream>
 #include "Linkedlist.h"
 #include "Movie.h"
+#include "VideoPlayer.h"
+
 
 string name="";
 string director="";
 string year="";
 string score="";
 string IMBDlink="";
+
+
+void callback (GtkWidget *widget, gpointer *data)
+{
+    g_print ("Clicked");
+    VideoPlayer videoPlayer;
+    Movie_node* movie= reinterpret_cast<Movie_node *>(data);
+    videoPlayer.start_videoplayer(movie->name,movie->year,movie->Summary,movie->director,movie->image,movie->ranking,movie->videoURl);
+
+}
 
 int main(int argc, char *argv[]) {
     Linkedlist* l=new Linkedlist;
@@ -26,6 +38,7 @@ int main(int argc, char *argv[]) {
     GtkWidget *image20;
     GtkWidget *yearstring;
     gtk_init(&argc, &argv);
+
 
     window = gtk_window_new(GTK_WINDOW_TOPLEVEL);
     gtk_window_set_default_size(GTK_WINDOW(window), 1300, 800);
@@ -191,7 +204,7 @@ int main(int argc, char *argv[]) {
     for(int i=0;i<=end;i++){
         if(i>=begin){
             cout<<"entre------------------"<<tmp->name<<endl;
-            movie->insert(tmp->name,tmp->year,tmp->IMBDlink,tmp->ranking);
+            movie->insert(tmp->name,tmp->year,tmp->IMBDlink,tmp->ranking,tmp->director);
 
         }
         tmp=tmp->next;
@@ -201,18 +214,67 @@ int main(int argc, char *argv[]) {
     title=gtk_label_new("");
     yearstring=gtk_label_new("");
     image20=gtk_image_new();
+    GtkWidget *mainbox;
+    GtkWidget *fixed;
+    fixed = gtk_fixed_new();
+
+    gtk_container_add(GTK_CONTAINER(layout), fixed);
+
+
     gtk_image_set_from_file(GTK_IMAGE(image20),movie->node_search("Avatar")->image.c_str());
+
+
+
+    GdkPixbuf *pixbuf =	gtk_image_get_pixbuf(GTK_IMAGE(image20));
+
+    pixbuf = gdk_pixbuf_scale_simple(pixbuf, 100,100*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf), GDK_INTERP_BILINEAR);
+
+    gtk_image_set_from_pixbuf(GTK_IMAGE(image20), pixbuf);
+
+
+
     gtk_label_set_text(GTK_LABEL(title),movie->node_search("Avatar")->name.c_str());
     gtk_label_set_text(GTK_LABEL(yearstring),movie->node_search("Avatar")->year.c_str());
-    gtk_fixed_put(GTK_FIXED(container),title,200,200);
-    gtk_fixed_put(GTK_FIXED(container),yearstring,500,500);
-    gtk_fixed_put(GTK_FIXED(container),image20,300,300);
+    //gtk_fixed_put(GTK_FIXED(fixed),title,200,200);
+    //gtk_fixed_put(GTK_FIXED(fixed),yearstring,500,500);
+    GtkWidget *button2 = gtk_button_new ();
+
+    gtk_button_set_image (GTK_BUTTON (button2), image20);
+    gtk_widget_set_size_request(button2,20,20);
 
 
+
+    mainbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
+    gtk_widget_set_hexpand(mainbox,FALSE);
+    gtk_widget_set_size_request(mainbox,20,20);
+
+    gtk_box_pack_start (GTK_BOX (mainbox), button2, TRUE,TRUE, 2);
+    gtk_box_pack_start (GTK_BOX (mainbox), title, TRUE,TRUE, 2);
+    gtk_box_pack_start (GTK_BOX (mainbox), yearstring, TRUE,TRUE, 2);
+    gtk_widget_modify_font (title,pango_font_description_from_string ("Arial bold"));
+    GdkColor color;
+    gdk_color_parse ("white", &color);
+    gtk_widget_modify_fg (title, GTK_STATE_NORMAL, &color);
+    gtk_widget_modify_font (yearstring,pango_font_description_from_string ("Arial bold"));
+    gtk_widget_modify_fg (yearstring, GTK_STATE_NORMAL, &color);
+    GdkRGBA colornew;
+    gdk_rgba_parse(&colornew, "blue");
+    gtk_widget_override_background_color(GTK_WIDGET(title), GTK_STATE_FLAG_NORMAL, &colornew);
+    gtk_widget_override_background_color(GTK_WIDGET(yearstring), GTK_STATE_FLAG_NORMAL, &colornew);
+    gtk_fixed_put(GTK_FIXED(fixed),mainbox,500,100);
+
+    Movie_node* movieNode1= movie->node_search("Avatar");
+    const gchar *key="Movie name";
+    g_object_set_data (G_OBJECT(mainbox),key,movieNode1);
+    g_signal_connect(G_OBJECT (button2), "clicked",G_CALLBACK(callback), g_object_get_data(G_OBJECT(mainbox),key));
 
     gtk_widget_show_all(window);
 
+
     gtk_main();
+    return 0;
+
+
     //Html html11;
     //html11.get_video_trailer(movie->node_search("Avatar")->videoURl);
     //l->search("Iron Man 3");
@@ -223,3 +285,5 @@ int main(int argc, char *argv[]) {
 
 
 }
+
+

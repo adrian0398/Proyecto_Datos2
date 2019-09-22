@@ -24,6 +24,7 @@ public:
     string Summary;
     string image;
     string videoURl;
+    string director;
     Movie_node* next;
 
 };
@@ -44,18 +45,21 @@ private:
     };
 
 public:
-    void insert(string new_data, string year, string IMBDlink, string ranking) {
+    void insert(string new_data, string year, string IMBDlink, string ranking, string director) {
         Movie_node* new_node = new Movie_node;
         Movie_node* last=head;
         new_node->name = new_data;
         new_node->year = year;
         new_node->IMBDlink = IMBDlink;
         new_node->ranking = ranking;
+        new_node->director = director;
         new_node->next = NULL;
         Html html;
         string url=html.get_url(IMBDlink,new_data);
         new_node->image=html.get_pic(url,new_data);
-        new_node->Summary==html.get_summary(url);
+        new_node->Summary=html.get_summary(url);
+        cout<<"vea--------------------------------------";
+        cout<<new_node->Summary;
         new_node->videoURl=html.get_video_url(url);
 
 
