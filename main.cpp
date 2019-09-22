@@ -22,6 +22,23 @@ void callback (GtkWidget *widget, gpointer *data)
     videoPlayer.start_videoplayer(movie->name,movie->year,movie->Summary,movie->director,movie->image,movie->ranking,movie->videoURl);
 
 }
+void scroll_cb(GtkWidget* window, GdkEvent* ev, gpointer userdata)
+{   if(ev->scroll.direction==0){
+        g_print ("scrolled up");
+}
+    if(ev->scroll.direction==1) {
+        g_print("scrolled down");
+    }
+}
+
+void resize_cb(GtkWidget* window, GdkEvent* ev, gpointer userdata)
+{
+    g_print ("resized!");
+    cout<<gtk_widget_get_allocated_height(window);
+    cout<<gtk_widget_get_allocated_width(window);
+    g_print ("resized!");
+}
+
 
 int main(int argc, char *argv[]) {
     Linkedlist* l=new Linkedlist;
@@ -261,18 +278,21 @@ int main(int argc, char *argv[]) {
     gdk_rgba_parse(&colornew, "blue");
     gtk_widget_override_background_color(GTK_WIDGET(title), GTK_STATE_FLAG_NORMAL, &colornew);
     gtk_widget_override_background_color(GTK_WIDGET(yearstring), GTK_STATE_FLAG_NORMAL, &colornew);
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox,500,100);
+    gtk_fixed_put(GTK_FIXED(fixed),mainbox,20,20);
 
     Movie_node* movieNode1= movie->node_search("Avatar");
     const gchar *key="Movie name";
     g_object_set_data (G_OBJECT(mainbox),key,movieNode1);
     g_signal_connect(G_OBJECT (button2), "clicked",G_CALLBACK(callback), g_object_get_data(G_OBJECT(mainbox),key));
-
+    g_signal_connect(window, "scroll-event", G_CALLBACK(scroll_cb), NULL);
+    g_signal_connect(window, "configure-event", G_CALLBACK(resize_cb), NULL);
     gtk_widget_show_all(window);
 
 
     gtk_main();
+    remove("Spectre.jpg");
     return 0;
+
 
 
     //Html html11;
