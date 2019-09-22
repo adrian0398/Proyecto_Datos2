@@ -12,7 +12,9 @@ string director="";
 string year="";
 string score="";
 string IMBDlink="";
+GtkWidget* memorylbl;
 
+void memory_display();
 
 void callback (GtkWidget *widget, gpointer *data)
 {
@@ -37,10 +39,38 @@ void resize_cb(GtkWidget* window, GdkEvent* ev, gpointer userdata)
     cout<<gtk_widget_get_allocated_height(window);
     cout<<gtk_widget_get_allocated_width(window);
     g_print ("resized!");
+    memory_display();
 }
 
+void memory_display() {
+    int tSize = 0, resident = 0, share = 0;
+    ifstream buffer("/proc/self/statm");
+    buffer >> tSize >> resident >> share;
+    buffer.close();
+    long page_size_kb = sysconf(_SC_PAGE_SIZE) / 1024; // in case x86-64 is configured to use 2MB pages
+    int rss = resident * page_size_kb;
+    string memorydip="Memory usage: "+std::to_string(rss)+ " MB";
+    GdkColor color;
+    gdk_color_parse ("white", &color);
+    gtk_widget_modify_fg (memorylbl, GTK_STATE_NORMAL, &color);
+    gtk_label_set_text(GTK_LABEL(memorylbl), memorydip.c_str());
+}
 
 int main(int argc, char *argv[]) {
+    int tSize = 0, resident = 0, share = 0;
+    ifstream buffer("/proc/self/statm");
+    buffer >> tSize >> resident >> share;
+    buffer.close();
+
+    long page_size_kb = sysconf(_SC_PAGE_SIZE) / 1024; // in case x86-64 is configured to use 2MB pages
+    double rss = resident * page_size_kb;
+    cout << "RSS - " << rss << " kB\n";
+
+    double shared_mem = share * page_size_kb;
+    cout << "Shared Memory - " << shared_mem << " kB\n";
+
+    cout << "Private Memory - " << rss - shared_mem << "kB\n";
+
     Linkedlist* l=new Linkedlist;
     Movie* movie=new Movie;
 
@@ -279,6 +309,8 @@ int main(int argc, char *argv[]) {
     gtk_widget_override_background_color(GTK_WIDGET(title), GTK_STATE_FLAG_NORMAL, &colornew);
     gtk_widget_override_background_color(GTK_WIDGET(yearstring), GTK_STATE_FLAG_NORMAL, &colornew);
     gtk_fixed_put(GTK_FIXED(fixed),mainbox,20,20);
+    memorylbl=gtk_label_new("");
+    gtk_fixed_put(GTK_FIXED(fixed),memorylbl,1100,0);
 
     Movie_node* movieNode1= movie->node_search("Avatar");
     const gchar *key="Movie name";
@@ -290,8 +322,12 @@ int main(int argc, char *argv[]) {
 
 
     gtk_main();
-    remove("Spectre.jpg");
-    return 0;
+    //remove("Spectre.jpg");
+
+
+
+
+
 
 
 
