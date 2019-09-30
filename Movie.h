@@ -32,8 +32,6 @@ public:
 
 class Movie {
 
-    Movie_node* head = new Movie_node;
-
 private:
     void display() {
         Movie_node* ptr=new Movie_node;
@@ -103,6 +101,8 @@ public:
         }
         printf("Key not found\n");
     }
+
+    Movie_node* head = new Movie_node;
 };
 
 

@@ -144,6 +144,12 @@
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h">
 			<Option target="Proyecto1_Datos2"/>
 		</Unit>
+		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp">
+			<Option target="Proyecto1_Datos2"/>
+		</Unit>
+		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h">
+			<Option target="Proyecto1_Datos2"/>
+		</Unit>
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.cpp">
 			<Option target="Proyecto1_Datos2"/>
 		</Unit>

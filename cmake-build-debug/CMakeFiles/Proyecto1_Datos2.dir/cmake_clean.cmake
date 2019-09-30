@@ -7,6 +7,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o"
   "CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.o"
   "CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o"
+  "CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o"
   "Proyecto1_Datos2.pdb"
   "Proyecto1_Datos2"
 )

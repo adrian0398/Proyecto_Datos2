@@ -231,6 +231,33 @@ MovieComponent.cpp.s:
 	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.s
 .PHONY : MovieComponent.cpp.s
 
+Pagina.o: Pagina.cpp.o
+
+.PHONY : Pagina.o
+
+# target to build an object file
+Pagina.cpp.o:
+	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o
+.PHONY : Pagina.cpp.o
+
+Pagina.i: Pagina.cpp.i
+
+.PHONY : Pagina.i
+
+# target to preprocess a source file
+Pagina.cpp.i:
+	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.i
+.PHONY : Pagina.cpp.i
+
+Pagina.s: Pagina.cpp.s
+
+.PHONY : Pagina.s
+
+# target to generate assembly for a file
+Pagina.cpp.s:
+	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.s
+.PHONY : Pagina.cpp.s
+
 VideoPlayer.o: VideoPlayer.cpp.o
 
 .PHONY : VideoPlayer.o
@@ -360,6 +387,9 @@ help:
 	@echo "... MovieComponent.o"
 	@echo "... MovieComponent.i"
 	@echo "... MovieComponent.s"
+	@echo "... Pagina.o"
+	@echo "... Pagina.i"
+	@echo "... Pagina.s"
 	@echo "... VideoPlayer.o"
 	@echo "... VideoPlayer.i"
 	@echo "... VideoPlayer.s"

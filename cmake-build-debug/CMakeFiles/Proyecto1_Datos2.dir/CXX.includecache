@@ -114,6 +114,22 @@ gtk/gtk.h
 Html.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Html.h
 
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
+gtk/gtk.h
+-
+Movie.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
+VideoPlayer.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
+
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
+iostream
+-
+Linkedlist.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
+Movie.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
+
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
 gtk/gtk.h
 -
@@ -126,6 +142,8 @@ string
 gdk/gdk.h
 -
 gdk/gdkx.h
+-
+iostream
 -
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/main.cpp
@@ -143,6 +161,12 @@ Movie.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
 VideoPlayer.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
+MovieComponent.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
+Pagina.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
+math.h
+-
 
 /usr/include/atk-1.0/atk/atk-enum-types.h
 atk/atkversion.h

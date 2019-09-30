@@ -12,10 +12,11 @@
 #include <gdk/gdk.h>
 
 #include <gdk/gdkx.h>
-
+#include <iostream>
 
 
 class VideoPlayer {
+
 /* Structure to contain all our information, so we can pass it around */
     typedef struct _CustomData {
         GstElement *playbin;           /* Our one and only pipeline */
@@ -67,8 +68,22 @@ class VideoPlayer {
 
 /* This function is called when the main window is closed */
     static void delete_event_cb (GtkWidget *widget, GdkEvent *event, CustomData *data) {
-        stop_cb (NULL, data);
-        gtk_main_quit ();
+        //stop_cb (NULL, data);
+        std::cout<<"sali"<<std::endl;
+        //pause_cb(NULL,data);
+        //gst_element_set_state(data->playbin, GST_STATE_NULL);
+        //data->state=GST_STATE_NULL;
+        //gst_object_unref(GST_OBJECT(data->playbin));
+        //gst_task_cleanup_all();
+
+        //info(data->playbin);
+        gtk_main_quit();
+    }
+
+    static void info(const GstElement *const element)
+    {
+        std::cout << "count: " << GST_OBJECT_REFCOUNT(element) << std::endl;
+
     }
 
 /* This function is called everytime the video window needs to be redrawn (due to damage/exposure,
@@ -165,6 +180,7 @@ class VideoPlayer {
         fixed= gtk_fixed_new();
         gtk_container_add(GTK_CONTAINER(prueba), fixed);
         namelbl=gtk_label_new(movie_name.c_str());
+        //gtk_label_set_line_wrap(GTK_LABEL(namelbl),TRUE);
         movie_year="Year: "+movie_year;
         yearlbl=gtk_label_new(movie_year.c_str());
 
@@ -173,11 +189,15 @@ class VideoPlayer {
         movie_director="Director: "+movie_director;
         directorlbl=gtk_label_new(movie_director.c_str());
 
-
         movie_ranking="Ranking: "+movie_ranking;
         rankinglbl=gtk_label_new(movie_ranking.c_str());
 
-        gtk_widget_modify_font (namelbl,pango_font_description_from_string ("Arial bold 80"));
+        std::string tmp=gtk_label_get_text(GTK_LABEL(namelbl));
+        std::string style ="Arial bold ";
+        int sizenum=60/tmp.length() * 5+20;
+        std::string size = std::to_string(sizenum);
+        style += size;
+        gtk_widget_modify_font (namelbl,pango_font_description_from_string (style.c_str()));
         GdkColor color;
         gdk_color_parse ("white", &color);
         gtk_widget_modify_fg (namelbl, GTK_STATE_NORMAL, &color);
@@ -248,15 +268,15 @@ class VideoPlayer {
             }
         }
 
-        if (gst_element_query_position (data->playbin, GST_FORMAT_TIME, &current)) {
-            /* Block the "value-changed" signal, so the slider_cb function is not called
-             * (which would trigger a seek the user has not requested) */
+        /*if (gst_element_query_position (data->playbin, GST_FORMAT_TIME, &current)) {
+            *//* Block the "value-changed" signal, so the slider_cb function is not called
+             * (which would trigger a seek the user has not requested) *//*
             g_signal_handler_block (data->slider, data->slider_update_signal_id);
-            /* Set the position of the slider to the current pipeline positoin, in SECONDS */
+            *//* Set the position of the slider to the current pipeline positoin, in SECONDS *//*
             gtk_range_set_value (GTK_RANGE (data->slider), (gdouble)current / GST_SECOND);
-            /* Re-enable the signal */
+            *//* Re-enable the signal *//*
             g_signal_handler_unblock (data->slider, data->slider_update_signal_id);
-        }
+        }*/
         return TRUE;
     }
 
@@ -373,8 +393,17 @@ public:
         gtk_main ();
 
         /* Free resources */
-        gst_element_set_state (data.playbin, GST_STATE_NULL);
-        gst_object_unref (data.playbin);
+        //gst_element_set_state (data.playbin, GST_STATE_NULL);
+        //gst_object_unref (data.playbin);
+
+        gst_element_set_state(data.playbin, GST_STATE_NULL);
+        data.state=GST_STATE_NULL;
+        gst_object_unref(GST_OBJECT(data.playbin));
+        gst_task_cleanup_all();
+
+
+
+
     }
 };
 

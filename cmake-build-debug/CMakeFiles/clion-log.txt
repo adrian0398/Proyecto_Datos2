@@ -9,7 +9,6 @@
 --   graph
 --   chrono
 --   atomic
--- Checking for one of the modules 'gstreamer-1.0;libgstvideo-1.0'
 -- Configuring done
 -- Generating done
 -- Build files have been written to: /home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug

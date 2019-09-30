@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Linkedlist.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o"
+  "/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/jsoncpp.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/jsoncpp.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/main.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/main.cpp.o"
