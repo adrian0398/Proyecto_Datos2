@@ -16,6 +16,8 @@ using namespace std;
 
 
 class Movie_node {
+
+
 public:
     string name;
     string year;
@@ -25,68 +27,58 @@ public:
     string image;
     string videoURl;
     string director;
-    Movie_node* next;
+    Movie_node* next=NULL;
 
 };
 
 
-class Movie {
-
-private:
-    void display() {
-        Movie_node* ptr=new Movie_node;
-        ptr = head;
-        while (ptr != NULL) {
-            std::cout<< ptr->name <<" ";
-            ptr = ptr->next;
-        }
-    };
+class Movie { ;
 
 public:
+
     void insert(string new_data, string year, string IMBDlink, string ranking, string director) {
-        Movie_node* new_node = new Movie_node;
-        Movie_node* last=head;
-        new_node->name = new_data;
-        new_node->year = year;
-        new_node->IMBDlink = IMBDlink;
-        new_node->ranking = ranking;
-        new_node->director = director;
-        new_node->next = NULL;
+        Movie_node* new_movie_node = new Movie_node;
+        Movie_node* last= head;
+        new_movie_node->name = new_data;
+        new_movie_node->year = year;
+        new_movie_node->IMBDlink = IMBDlink;
+        new_movie_node->ranking = ranking;
+        new_movie_node->director = director;
+        new_movie_node->next = NULL;
         Html html;
         string url=html.get_url(IMBDlink,new_data);
-        new_node->image=html.get_pic(url,new_data);
-        new_node->Summary=html.get_summary(url);
+        new_movie_node->image=html.get_pic(url,new_data);
+        new_movie_node->Summary=html.get_summary(url);
         cout<<"vea--------------------------------------";
-        cout<<new_node->Summary;
-        new_node->videoURl=html.get_video_url(url);
+        cout<<new_movie_node->Summary;
+        new_movie_node->videoURl=html.get_video_url(url);
 
 
         if (head == NULL)
         {
-            head = new_node;
+            head = new_movie_node;
             return;
         }
 
         while (last->next != NULL)
             last = last->next;
 
-        last->next = new_node;
+        last->next = new_movie_node;
         return;
     }
 
-    void search(string value){
+    bool search(string value){
 
         Movie_node* tmp=head;
         while (tmp != NULL){
             if (tmp->name == value)
             {
-                printf("key found\n");
-                cout <<tmp->name<<tmp->IMBDlink<<tmp->year;
-                return;
+
+                return true;
             }
             tmp= tmp->next;
         }
-        printf("Key not found\n");
+        return false;
     }
 
     Movie_node* node_search(string value){
@@ -99,10 +91,58 @@ public:
             }
             tmp= tmp->next;
         }
-        printf("Key not found\n");
+        return NULL;
     }
 
-    Movie_node* head = new Movie_node;
+
+
+
+    void display() {
+        Movie_node* ptr=new Movie_node;
+        ptr = head;
+        while (ptr != NULL) {
+            std::cout<< ptr->name <<" ";
+            ptr = ptr->next;
+        }
+    }
+
+    Movie_node* head = NULL;
+    void insertready(string new_data, string year, string IMBDlink, string ranking, string director, string image, string Summary, string videoUrl) {
+        Movie_node* new_movie_node = new Movie_node;
+        Movie_node* last= head;
+        new_movie_node->name = new_data;
+        new_movie_node->year = year;
+        new_movie_node->IMBDlink = IMBDlink;
+        new_movie_node->ranking = ranking;
+        new_movie_node->director = director;
+        new_movie_node->image=image;
+        new_movie_node->Summary=Summary;
+        new_movie_node->videoURl=videoUrl;
+
+        new_movie_node->next = NULL;
+
+
+
+
+
+
+        if (head == NULL)
+        {
+            head = new_movie_node;
+            return;
+        }
+
+        while (last->next != NULL) {
+            last = last->next;
+        }
+
+        last->next = new_movie_node;
+        return;
+    }
+
+
+
+
 };
 
 

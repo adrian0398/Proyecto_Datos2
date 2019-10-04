@@ -24,7 +24,7 @@ class MovieComponent {
         GtkWidget *movie_year;
 
 
-    GtkWidget* newmovie_box(Movie_node* movie){
+    GtkWidget* newmovie_box(Movie_node* movie, int prefwidth){
         movie_year=gtk_label_new("");
         movie_name=gtk_label_new("");
         movie_image=gtk_image_new();
@@ -37,9 +37,9 @@ class MovieComponent {
 
         GdkPixbuf *pixbuf =	gtk_image_get_pixbuf(GTK_IMAGE(movie_image));
 
-        pixbuf = gdk_pixbuf_scale_simple(pixbuf, 100,100*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf), GDK_INTERP_BILINEAR);
+        pixbuf = gdk_pixbuf_scale_simple(pixbuf, prefwidth,prefwidth*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf), GDK_INTERP_BILINEAR);
 
-        cout<<"y de la imagen       "<<100*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf);
+        cout<<"y de la imagen       "<<prefwidth*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf);
         gtk_image_set_from_pixbuf(GTK_IMAGE(movie_image), pixbuf);
 
 
