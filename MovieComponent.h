@@ -32,14 +32,13 @@ class MovieComponent {
 
 
         gtk_image_set_from_file(GTK_IMAGE(movie_image),movie->image.c_str());
-        cout<<"Aqui estoy";
-        cout<<movie->image.c_str();
+
 
         GdkPixbuf *pixbuf =	gtk_image_get_pixbuf(GTK_IMAGE(movie_image));
 
         pixbuf = gdk_pixbuf_scale_simple(pixbuf, prefwidth,prefwidth*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf), GDK_INTERP_BILINEAR);
 
-        cout<<"y de la imagen       "<<prefwidth*gdk_pixbuf_get_height(pixbuf)/gdk_pixbuf_get_width(pixbuf);
+
         gtk_image_set_from_pixbuf(GTK_IMAGE(movie_image), pixbuf);
 
 
@@ -47,8 +46,7 @@ class MovieComponent {
         gtk_label_set_text(GTK_LABEL(movie_name),movie->name.c_str());
         gtk_label_set_line_wrap(GTK_LABEL(movie_name),TRUE);
         gtk_label_set_text(GTK_LABEL(movie_year),movie->year.c_str());
-        //gtk_fixed_put(GTK_FIXED(fixed),title,200,200);
-        //gtk_fixed_put(GTK_FIXED(fixed),yearstring,500,500);
+
         GtkWidget *button2 = gtk_button_new ();
 
         gtk_button_set_image (GTK_BUTTON (button2), movie_image);
@@ -85,7 +83,6 @@ class MovieComponent {
 
     static void clicked (GtkWidget *widget, gpointer *data)
     {   VideoPlayer videoplayer;
-        g_print ("Clicked");
         Movie_node* movie= reinterpret_cast<Movie_node *>(data);
         videoplayer.start_videoplayer(movie->name,movie->year,movie->Summary,movie->director,movie->image,movie->ranking,movie->videoURl);
 

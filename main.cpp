@@ -54,9 +54,6 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
             gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "x", g_value_init (&x, G_TYPE_INT));
             gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "y", g_value_init (&y, G_TYPE_INT));
 
-
-
-            cout<<x.data->v_int<<" d "<<y.data->v_int<<endl;
             gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int+10);
 
 
@@ -77,8 +74,6 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
             gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "y", g_value_init (&y, G_TYPE_INT));
 
 
-
-            cout<<x.data->v_int<<" d "<<y.data->v_int<<endl;
             gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int-10);
 
 
@@ -95,7 +90,7 @@ gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
 
     if (abs(gtk_widget_get_allocated_width(window)-xsize)>100||abs(gtk_widget_get_allocated_height(window)-ysize)>100){
 
-       cout<<"resize++++++++++++++++"<<endl;
+       cout<<"resize"<<endl;
         memory_display();
 
         int window_width=gtk_widget_get_allocated_width(window);
@@ -115,7 +110,6 @@ gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
         actual->setWindowWidth(gtk_widget_get_allocated_width(window));
         actual->setmovies();
         actual->draw();
-        cout<<actual->getFixed()<<endl;
         cout<<"termine"<<endl;
         gtk_widget_show_all(actual->getFixed());
         xsize=gtk_widget_get_allocated_width(window);
@@ -125,15 +119,6 @@ gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
 
 
 
-
-
-    /*actual->setWindowHeight(ev->configure.x);
-    actual->setWindowWidth(ev->configure.y);
-    actual->setmovies();
-    actual->draw();
-    cout<<actual->getFixed()<<endl;
-    cout<<"termine"<<endl;
-    gtk_widget_show_all(actual->getFixed());*/
 }
 
 
@@ -183,7 +168,7 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
             actual->setMovieHeight(movie_height);
             actual->setmovies();
             actual->draw();
-            cout<<actual->getFixed()<<endl;
+
             cout<<"termine"<<endl;
             gtk_widget_show_all(actual->getFixed());
 
@@ -210,7 +195,7 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
             actual->setMovieHeight(movie_height);
             actual->setmovies();
             actual->draw();
-            cout<<actual->getFixed()<<endl;
+
             cout<<"termine"<<endl;
             gtk_widget_show_all(actual->getFixed());
             break;
@@ -262,7 +247,7 @@ int num= atoi( gtk_button_get_label(GTK_BUTTON(widget)));
 actual->setPagenum(num);
 actual->setmovies();
 actual->draw();
-cout<<actual->getFixed()<<endl;
+
 cout<<"termine"<<endl;
 gtk_widget_show_all(actual->getFixed());
 actualizarbotones(num);
@@ -363,7 +348,7 @@ int main(int argc, char *argv[]) {
         std::stringstream   stream(linea);
         std::string         valor;
 
-        std::cout << "Contenido de la linea:\n";
+        //std::cout << "Contenido de la linea:\n";
         while(std::getline(stream,valor,','))
         {
             switch (row_counter) {
@@ -383,69 +368,19 @@ int main(int argc, char *argv[]) {
                     score=valor;
                     break;
             }
-            std::cout << "valor leido: " << valor<<row_counter << '\n';
+            //std::cout << "valor leido: " << valor<<row_counter << '\n';
             row_counter++;
         }
         l->insert(name,year,IMBDlink,score,director);
-        std::cout << "Fin de la linea\n";
+        //std::cout << "Fin de la linea\n";
     }
 
-    //std::cout<<"Buscar----------------------"<<endl;
-    //l->search("Whiplash");
 
 
-    //comentar mas
-
-//debe iniciar en 3
-/*
-    int begin=4133;
-    int end=4137;
-    Node* tmp=l->head;
-    for(int i=0;i<=end;i++){
-        if(i>=begin){
-            cout<<"entre------------------"<<tmp->name<<endl;
-            movie->insert(tmp->name,tmp->year,tmp->IMBDlink,tmp->ranking,tmp->director);
-
-        }
-        tmp=tmp->next;
-    }
-
-    Html html11;
-    title=gtk_label_new("");
-    yearstring=gtk_label_new("");
-    image20=gtk_image_new();
-*/
-
-
-
-
-
-    //comentar
-
-   /* MovieComponent* movieComponent= new MovieComponent();
-    mainbox=movieComponent->newmovie_box(movie->node_search("30 Nights of Paranormal Activity with the Devil Inside the Girl with the Dragon Tattoo"));
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox,20,20);
-
-    MovieComponent* movieComponent2= new MovieComponent();
-    mainbox=movieComponent2->newmovie_box(movie->node_search("Never Back Down 2: The Beatdown"));
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox,220,20);*/
-
-    cout<<"AQUI"<<window_width<<espacios<<x_space_in_between<<movie_width<<endl;
     moviesinx=num_moviex(window_width,espacios,x_space_in_between, movie_width);
     moviesiny=num_moviey(window_height,espacios,y_space_in_between, movie_height);
-    /*MovieComponent* movieComponent3= new MovieComponent();
-    mainbox3=movieComponent3->newmovie_box(movie->node_search("Pirates of the Caribbean: At World's End"));
-    MovieComponent* movieComponent4= new MovieComponent();
-    mainbox4=movieComponent2->newmovie_box(movie->node_search("The Dark Knight Rises"));
-    MovieComponent* movieComponent5= new MovieComponent();
-    mainbox5=movieComponent3->newmovie_box(movie->node_search("Star Wars: Episode VII - The Force Awakens"));
-    MovieComponent* movieComponent6= new MovieComponent();
-    mainbox6=movieComponent2->newmovie_box(movie->node_search("John Carter"));*/
 
-    /*gtk_fixed_put(GTK_FIXED(fixed),mainbox3,420,20);
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox4,620,20);
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox5,820,20);
-    gtk_fixed_put(GTK_FIXED(fixed),mainbox6,1020,20);*/
+
     Pagina* actual=new Pagina(l, x_space_in_between, y_space_in_between, window_height, window_width,
             movie_height, movie_width, espacios, moviesinx, moviesiny, fixed, pagina);
 
@@ -482,18 +417,12 @@ int main(int argc, char *argv[]) {
     gtk_box_pack_start (GTK_BOX (numbuttons), fivebut, FALSE, FALSE, 2);
     gtk_box_pack_start (GTK_BOX (numbuttons), sixbut, FALSE, FALSE, 2);
     gtk_box_pack_start (GTK_BOX (numbuttons), sevenbut, FALSE, FALSE, 2);
-    //main_hbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
-    //gtk_box_pack_start (GTK_BOX (main_box), controls, FALSE, FALSE, 0);
-   // gtk_box_pack_start (GTK_BOX (main_hbox), video_window, TRUE, TRUE, 0);
-    //.
+
+
     gtk_fixed_put(GTK_FIXED(fixed),numbuttons,0,0);
 
 
     gtk_fixed_put(GTK_FIXED(fixed),memorylbl,350,0);
-
-    //Movie_node* movieNode1= movie->node_search("Avatar");
-    //const gchar *key="Movie name";
-    //g_object_set_data (G_OBJECT(mainbox),key,movieNode1);
 
 
 
@@ -513,15 +442,6 @@ int main(int argc, char *argv[]) {
 
 
     gtk_main();
-    //remove("Spectre.jpg");
-    //Html html11;
-    //html11.get_video_trailer(movie->node_search("Avatar")->videoURl);
-    //l->search("Iron Man 3");
-    //movie->search("Cavite");
-
-
-
-
 
 
 }

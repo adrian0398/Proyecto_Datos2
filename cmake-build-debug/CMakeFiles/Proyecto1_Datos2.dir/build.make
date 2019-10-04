@@ -148,22 +148,9 @@ CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.cpp -o CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.s
 
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o: CMakeFiles/Proyecto1_Datos2.dir/flags.make
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o: ../prueba.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o -c /home/adrian/CLionProjects/Proyecto1_Datos2/prueba.cpp
-
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/adrian/CLionProjects/Proyecto1_Datos2/prueba.cpp > CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.i
-
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/adrian/CLionProjects/Proyecto1_Datos2/prueba.cpp -o CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.s
-
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: CMakeFiles/Proyecto1_Datos2.dir/flags.make
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../Pagina.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o -c /home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp
 
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.i: cmake_force
@@ -176,7 +163,7 @@ CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.s: cmake_force
 
 CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o: CMakeFiles/Proyecto1_Datos2.dir/flags.make
 CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o: ../Imagelist.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o -c /home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.cpp
 
 CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.i: cmake_force
@@ -196,7 +183,6 @@ Proyecto1_Datos2_OBJECTS = \
 "CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o" \
 "CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o" \
 "CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.o" \
-"CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o" \
 "CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o" \
 "CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o"
 
@@ -210,7 +196,6 @@ Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/jsoncpp.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.o
-Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/build.make
@@ -223,7 +208,7 @@ Proyecto1_Datos2: /usr/lib/x86_64-linux-gnu/libboost_graph.so
 Proyecto1_Datos2: /usr/lib/x86_64-linux-gnu/libboost_chrono.so
 Proyecto1_Datos2: /usr/lib/x86_64-linux-gnu/libboost_atomic.so
 Proyecto1_Datos2: CMakeFiles/Proyecto1_Datos2.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX executable Proyecto1_Datos2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX executable Proyecto1_Datos2"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/Proyecto1_Datos2.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

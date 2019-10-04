@@ -4136,6 +4136,3 @@ CMakeFiles/Proyecto1_Datos2.dir/main.cpp.o: /usr/include/pango-1.0/pango/pango.h
 CMakeFiles/Proyecto1_Datos2.dir/main.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 CMakeFiles/Proyecto1_Datos2.dir/main.cpp.o: /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
 
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o: ../prueba.cpp
-CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o: ../prueba.h
-

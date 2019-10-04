@@ -49,16 +49,5 @@ void search(string value){
 
 
 
-/*int main() {
-    insert("Nemo","2009","gjf","54");
-    insert("Cars","2010","ds","45");
-    insert("Big","2020","aa","64");
-    insert("Whiplash","2035","sss","32");
-    insert("IronMan","2010","ddd","23");
-    cout<<"The linked list is: ";
-    display();
-    search("Whiplash");
-    return 0;
-}*/
 
 #endif //SOCKETSERVER_LINKEDLIST_H

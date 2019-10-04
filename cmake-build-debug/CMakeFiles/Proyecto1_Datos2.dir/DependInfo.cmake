@@ -13,7 +13,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/VideoPlayer.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/jsoncpp.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/jsoncpp.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/main.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/main.cpp.o"
-  "/home/adrian/CLionProjects/Proyecto1_Datos2/prueba.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

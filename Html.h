@@ -64,11 +64,10 @@ public:
             movie_link.append(x);
         }
 
-        cout<<"Link begin"<<endl;
+
         movie_link=movie_link.substr(movie_link.find("https"));
         movie_link=movie_link.substr(0,movie_link.size()-18);
-        cout<<movie_link<<endl;
-        cout<<"Link end"<<endl;
+
 
         CURL *image;
         CURLcode imgresult;
@@ -95,7 +94,7 @@ public:
         curl_easy_cleanup(image);
         // Close the file
         fclose(fp);
-        cout<<imagename<<endl;
+
         GError *error = NULL;
         GdkPixbuf *pix = gdk_pixbuf_new_from_file (imagename.c_str(), &error);
         if (pix == NULL) {
@@ -120,10 +119,9 @@ public:
             movie_history.append(x1);
         }
         // History modify
-        cout<<"History begin"<<endl;
+
         movie_history=movie_history.substr(14,movie_history.size()-22);
-        cout<<movie_history<<endl;
-        cout<<"History end"<<endl;
+
 
         return movie_history;
     }
@@ -143,15 +141,12 @@ public:
 
         //Video modify
 
-        cout<<"--------------------------------------------"<<movie_video;
 
-        cout<<"Video begin"<<endl;
+
         movie_video=movie_video.substr(6,movie_video.find("class"));
         movie_video=movie_video.substr(0,movie_video.size()-8);
         movie_video=movie_video.insert(0,"https://www.imdb.com");
         movie_video=movie_video.replace(movie_video.find("video/imdb"),10,"videoplayer");
-        cout<<movie_video<<endl;
-        cout<<"Video end"<<endl;
 
 
         //search in video URL
@@ -171,12 +166,12 @@ public:
 
 
             curl_easy_perform(curl1);
-            cout << endl << data << endl;
+            //cout << endl << data << endl;
             curl_easy_cleanup(curl1);
             curl_global_cleanup();
         }
 
-        cout<<data.size()<<"==========================="<<endl;
+
         string movie_video_ultimate="";
         std::string s3 (data);
         std::smatch m3;
@@ -186,21 +181,11 @@ public:
         for (auto x3:m3) {
             movie_video_ultimate.append(x3) ;
         }
-                 movie_video_ultimate=data.substr(data.find("window.IMDbReactInitialState.push("),data.size()-1);
+        movie_video_ultimate=data.substr(data.find("window.IMDbReactInitialState.push("),data.size()-1);
         movie_video_ultimate= movie_video_ultimate.substr(0,movie_video_ultimate.find(");"));
         movie_video_ultimate= movie_video_ultimate.replace(0,34,"");
-        //movie_video_ultimate=movie_video_ultimate.substr(11,movie_video_ultimate.size()-52);
-        /*for(int n=0;n<4;n++) {
-            movie_video_ultimate = movie_video_ultimate.replace(movie_video_ultimate.find("u002F"), 5, "");
-        }
-        movie_video_ultimate=movie_video_ultimate.substr(0,movie_video_ultimate.find("}"));
-        movie_video_ultimate=movie_video_ultimate.substr(0,movie_video_ultimate.size()-1);
-*/
-        //movie_video_ultimate=movie_video_ultimate.replace(movie_video_ultimate.find("window.IMDbReactInitialState.push("),15,"");
 
-        cout<<"separador"<<endl;
-        cout<<movie_video_ultimate<<endl;
-        cout<<"separador2"<<endl;
+
 
         Json::Value root;
         Json::Reader reader;
@@ -213,25 +198,21 @@ public:
 
         const Json::Value mynames = root["videos"];
         const Json::Value mynames2 = mynames["videoMetadata"];
-        cout<<"me cago";
-        cout << mynames2 << endl;
-        cout<<"en";
+
 
         string aux;
 
         for (auto const& id : mynames2.getMemberNames()) {
             aux=id;
         }
-        cout<<aux<<"---------------------------";
+
         const Json::Value mynames3 = mynames2[aux];
 
         const Json::Value myname4= mynames3["encodings"];
         const Json::Value myname5=myname4[0];
 
         const Json::Value myname6=myname5["videoUrl"];
-        cout<<"me ";
-        cout << myname6 << endl;
-        cout<<"en";
+
 
         //end search in video URL
 
@@ -266,237 +247,12 @@ public:
         curl_easy_cleanup(video);
         // Close the file
         fclose(fp1);
-        cout<<"Hola";
+
 
     }
 
 
 
-    /*void get_pic_and_summary(string Imbdlink, string name) {
-
-
-
-
-
-        string movie_link = "";
-
-        std::string s(response_string);
-        std::smatch m;
-        std::regex e(
-                "\\b(Poster\" title=)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?@\\^_`{|}~\\-\\ ]+(.jpg)\\b");   // matches words beginning by "sub"
-
-
-        std::regex_search(s, m, e);
-        for (auto x:m) {
-            movie_link.append(x);
-        }
-
-
-
-        std::smatch m1;
-        std::regex e1(
-                "\\b(summary)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?>@\\^_`{|}~\\-\\ ]+(.)\\b");   // matches words beginning by "sub"
-
-
-        string movie_history = "";
-        std::regex_search(s, m1, e1);
-        for (auto x1:m1) {
-            movie_history.append(x1);
-        }
-
-
-        // Link modify
-        cout<<"Link begin"<<endl;
-        movie_link=movie_link.substr(movie_link.find("https"));
-        movie_link=movie_link.substr(0,movie_link.size()-18);
-        cout<<movie_link<<endl;
-        cout<<"Link end"<<endl;
-
-        // History modify
-        cout<<"History begin"<<endl;
-        movie_history=movie_history.substr(14,movie_history.size()-22);
-        cout<<movie_history<<endl;
-        cout<<"History end"<<endl;
-*//*
-
-
-        std::smatch m2;
-        std::regex e2 ("\\b(href)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?>@\\^_`{|}~\\-\\ ]+(video)\\b");   // matches words beginning by "sub"
-
-
-        string movie_video="";
-        std::regex_search (s,m2,e2);
-        for (auto x2:m2) {
-            movie_video.append(x2) ;
-        }
-        cout<<movie_link;
-        // Link modify
-        cout<<"Link begin"<<endl;
-        movie_link=movie_link.substr(movie_link.find("https"));
-        movie_link=movie_link.substr(0,movie_link.size()-18);
-        cout<<movie_link<<endl;
-        cout<<"Link end"<<endl;
-
-        // History modify
-        cout<<"History begin"<<endl;
-        movie_history=movie_history.substr(14,movie_history.size()-22);
-        cout<<movie_history<<endl;
-        cout<<"History end"<<endl;
-
-        //Video modify
-
-        cout<<"--------------------------------------------"<<movie_video;
-
-        cout<<"Video begin"<<endl;
-        movie_video=movie_video.substr(6,movie_video.find("class"));
-        movie_video=movie_video.substr(0,movie_video.size()-8);
-        movie_video=movie_video.insert(0,"https://www.imdb.com");
-        movie_video=movie_video.replace(movie_video.find("video/imdb"),10,"videoplayer");
-        cout<<movie_video<<endl;
-        cout<<"Video end"<<endl;
-
-
-        //search in video URL
-        CURL* curl1; //our curl object
-
-
-        curl1 = curl_easy_init();
-
-        if(curl) {
-            curl_easy_setopt(curl1, CURLOPT_URL, movie_video.c_str());
-            *//**//* example.com is redirected, so we tell libcurl to follow redirection *//**//*
-            curl_easy_setopt(curl1, CURLOPT_WRITEFUNCTION, &Html::writeCallback2);
-            curl_easy_setopt(curl1, CURLOPT_FOLLOWLOCATION, true);
-            curl_easy_setopt(curl1, CURLOPT_USERAGENT, "Dark Secret Ninja/1.0");
-
-
-            curl_easy_perform(curl1);
-            cout << endl << data2 << endl;
-            curl_easy_cleanup(curl1);
-            curl_global_cleanup();
-        }
-
-        cout<<data2.size()<<"==========================="<<endl;
-        string movie_video_ultimate="";
-*//**//*   std::string s3 (data2);
-    std::smatch m3;
-    std::regex e3 ("\\b(window.IMDbReactInitialState.push)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?>@\\^_`{|}~\\-\\ ]+(videoMature)\\b");   // matches words beginning by "sub"
-
-    std::regex_search (s3,m3,e3);
-    for (auto x3:m3) {
-        movie_video_ultimate.append(x3) ;
-    }*//**//*
-        movie_video_ultimate=data2.substr(data2.find("window.IMDbReactInitialState.push("),data2.size()-1);
-        movie_video_ultimate= movie_video_ultimate.substr(0,movie_video_ultimate.find(");"));
-        movie_video_ultimate= movie_video_ultimate.replace(0,34,"");
-        *//**//* movie_video_ultimate=movie_video_ultimate.substr(11,movie_video_ultimate.size()-52);
-         for(int n=0;n<4;n++) {
-             movie_video_ultimate = movie_video_ultimate.replace(movie_video_ultimate.find("u002F"), 5, "");
-         }
-         movie_video_ultimate=movie_video_ultimate.substr(0,movie_video_ultimate.find("}"));
-         movie_video_ultimate=movie_video_ultimate.substr(0,movie_video_ultimate.size()-1);*//**//*
-
-        //movie_video_ultimate=movie_video_ultimate.replace(movie_video_ultimate.find("window.IMDbReactInitialState.push("),15,"");
-
-        cout<<"separador"<<endl;
-        cout<<movie_video_ultimate<<endl;
-        cout<<"separador2"<<endl;
-
-        Json::Value root;
-        Json::Reader reader;
-
-        bool parsingSuccessful = reader.parse( movie_video_ultimate, root, false);
-        if ( !parsingSuccessful )
-        {
-            cout << "Error parsing the string" << endl;
-        }
-
-        const Json::Value mynames = root["videos"];
-        const Json::Value mynames2 = mynames["videoMetadata"];
-        cout<<"me cago";
-        cout << mynames2 << endl;
-        cout<<"en";
-
-        string aux;
-
-        for (auto const& id : mynames2.getMemberNames()) {
-            aux=id;
-        }
-        cout<<aux<<"---------------------------";
-        const Json::Value mynames3 = mynames2[aux];
-
-        const Json::Value myname4= mynames3["encodings"];
-        const Json::Value myname5=myname4[0];
-
-        const Json::Value myname6=myname5["videoUrl"];
-        cout<<"me ";
-        cout << myname6 << endl;
-        cout<<"en";
-
-        //end search in video URL
-
-
-
-        cout<<movie_link<<endl;
-        cout<<movie_history<<endl;
-        cout<<movie_video<<endl;
-*//*
-
-        CURL *image;
-        CURLcode imgresult;
-        string imagename=name;
-        imagename.append(".jpg");
-        FILE *fp = nullptr;
-        const char *url = movie_link.c_str();
-        image = curl_easy_init();
-        if (image)
-        {
-            // Open file
-            fp = fopen(imagename.c_str(), "wb");
-            if (fp == NULL) cout << "File cannot be opened";
-
-            curl_easy_setopt(image, CURLOPT_WRITEFUNCTION, NULL);
-            curl_easy_setopt(image, CURLOPT_WRITEDATA, fp);
-            curl_easy_setopt(image, CURLOPT_URL, url);
-            // Grab image
-            imgresult = curl_easy_perform(image);
-            if (imgresult)
-                cout << "Cannot grab the image!\n";
-        }
-        // Clean up the resources
-        curl_easy_cleanup(image);
-        // Close the file
-        fclose(fp);
-        *//*
-               CURL *image1;
-               CURLcode imgresult1;
-               FILE *fp1 = nullptr;
-               const char *url1 = myname6.asCString();
-               image1 = curl_easy_init();
-               if (image1)
-               {
-
-
-                   // Open file
-                   fp1 = fopen("video.mp4", "wb");
-                   if (fp1 == NULL) cout << "File cannot be opened";
-
-                   curl_easy_setopt(image1, CURLOPT_WRITEFUNCTION, NULL);
-                   curl_easy_setopt(image1, CURLOPT_WRITEDATA, fp1);
-                   curl_easy_setopt(image1, CURLOPT_URL, url1);
-                   // Grab image
-                   imgresult1 = curl_easy_perform(image1);
-                   if (imgresult1)
-                       cout << "Cannot grab the image1!\n";
-               }
-               // Clean up the resources
-               curl_easy_cleanup(image1);
-               // Close the file
-               fclose(fp1);
-               cout<<"Hola";
-           }*//*
-
-    }*/
 };
 
 

@@ -59,8 +59,7 @@ public:
         string url=html.get_url(IMBDlink,new_data);
         new_movie_node->image=html.get_pic(url,new_data);
         new_movie_node->Summary=html.get_summary(url);
-        cout<<"vea--------------------------------------";
-        cout<<new_movie_node->Summary;
+
         new_movie_node->videoURl=html.get_video_url(url);
 
 

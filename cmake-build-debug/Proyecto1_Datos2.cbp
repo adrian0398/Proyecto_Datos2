@@ -171,12 +171,6 @@
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/main.cpp">
 			<Option target="Proyecto1_Datos2"/>
 		</Unit>
-		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/prueba.cpp">
-			<Option target="Proyecto1_Datos2"/>
-		</Unit>
-		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/prueba.h">
-			<Option target="Proyecto1_Datos2"/>
-		</Unit>
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/CMakeLists.txt">
 			<Option virtualFolder="CMake Files\"/>
 		</Unit>

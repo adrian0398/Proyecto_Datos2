@@ -366,33 +366,6 @@ main.cpp.s:
 	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/main.cpp.s
 .PHONY : main.cpp.s
 
-prueba.o: prueba.cpp.o
-
-.PHONY : prueba.o
-
-# target to build an object file
-prueba.cpp.o:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.o
-.PHONY : prueba.cpp.o
-
-prueba.i: prueba.cpp.i
-
-.PHONY : prueba.i
-
-# target to preprocess a source file
-prueba.cpp.i:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.i
-.PHONY : prueba.cpp.i
-
-prueba.s: prueba.cpp.s
-
-.PHONY : prueba.s
-
-# target to generate assembly for a file
-prueba.cpp.s:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/prueba.cpp.s
-.PHONY : prueba.cpp.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -429,9 +402,6 @@ help:
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"
-	@echo "... prueba.o"
-	@echo "... prueba.i"
-	@echo "... prueba.s"
 .PHONY : help
 
 
