@@ -4,6 +4,8 @@
 
 #include "Pagina.h"
 #include "MovieComponent.h"
+#include "Imagelist.h"
+
 
 void Pagina::draw() {
     cout<<"Longitud"<<g_list_length(children)<<endl;
@@ -77,6 +79,8 @@ Pagina::Pagina(Linkedlist *movielist, int xSpaceInBetween, int ySpaceInBetween, 
 }
 
 void Pagina::setmovies() {
+
+
     free(movies);
     movies=new Movie;
     cout<<"estare????"<<endl;
@@ -158,7 +162,85 @@ void Pagina::setmovies() {
         tmp2=tmp2->next;
     }
 
+   /* Imagelist* moviephotolist=new Imagelist;
+    Movie_node* tmp10=biggerlist->head;
+    while (tmp10 != NULL) {
+        moviephotolist->insert(const_cast<char *>(tmp10->image.c_str()));
+        tmp10= tmp10->next;
+    }*/
+
+
+    if(biggerlist->getsize()>3*moviesinx*moviesiny){
+        cout<<"Eliminar esto"<<biggerlist->getsize()<<"de"<<3*moviesinx*moviesiny<<endl;
+        int contador=((biggerlist->getsize())-(3*moviesinx*moviesiny));
+
+        for(int i=0;i<contador;i++){
+            cout<<"entre "<<i<<biggerlist->getsize()<<endl;
+            biggerlist->removeFirstNode();
+
+        }
+
+        cout<<biggerlist->getsize()<<endl;
+
+    }
+    const fs::path root="/home/adrian/CLionProjects/Proyecto1_Datos2";
+    const string ext=".jpg";
+    vector<fs::path> ret;
+
+    get_all(root,  ext,  ret);
+    std::cout<<"images path";
+    for(int i=0; i<ret.size(); ++i)
+        std::cout << ret[i] << " ";
+
+
+
+
+   /* Imagelist* moviephotolist2=new Imagelist;
+    Movie_node* tmp11=biggerlist->head;
+    while (tmp11 != NULL) {
+        moviephotolist2->insert(const_cast<char *>(tmp11->image.c_str()));
+        tmp11= tmp11->next;
+    }
+    cout<<moviephotolist->getsize()<<"talllllllllllllllllla"<<moviephotolist2->getsize();
+
+    Image_node* tmp20=moviephotolist2->head;
+    while (tmp20 != NULL) {
+        moviephotolist->deleteKey(tmp20->image_url);
+        tmp20= tmp20->next;
+    }
+
+
+    cout<<moviephotolist->getsize()<<"aeliminar"<<endl;
+    Image_node* tmp30=moviephotolist->head;
+
+    while (tmp30 != NULL) {
+        char* imgname=tmp30->image_url;
+        remove(imgname);
+        tmp30= tmp30->next;
+    }*/
+
+
+
+
 }
+
+void Pagina::get_all(const fs::path& root, const string& ext, vector<fs::path>& ret)
+{
+    if(!fs::exists(root) || !fs::is_directory(root)) return;
+
+    fs::recursive_directory_iterator it(root);
+    fs::recursive_directory_iterator endit;
+
+    while(it != endit)
+    {
+        if(fs::is_regular_file(*it) && it->path().extension() == ext) ret.push_back(it->path().filename());
+        ++it;
+
+    }
+
+}
+
+
 
 void Pagina::setPagenum(int pagenum) {
     Pagina::pagenum = pagenum;
@@ -238,6 +320,10 @@ int Pagina::getWindowHeight() const {
 
 int Pagina::getWindowWidth() const {
     return window_width;
+}
+
+GList *Pagina::getChildren() const {
+    return children;
 }
 
 

@@ -618,11 +618,15 @@ CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o: /usr/include/pango-1.0/pango/pango.h
 CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o: /usr/include/pango-1.0/pango/pangocairo.h
 CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o: /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
 
+CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o: ../Imagelist.cpp
+CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o: ../Imagelist.h
+
 CMakeFiles/Proyecto1_Datos2.dir/Linkedlist.cpp.o: ../Linkedlist.cpp
 CMakeFiles/Proyecto1_Datos2.dir/Linkedlist.cpp.o: ../Linkedlist.h
 
 CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: .././include/json/json.h
 CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: ../Html.h
+CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: ../Linkedlist.h
 CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: ../Movie.cpp
 CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: ../Movie.h
 CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: /usr/include/atk-1.0/atk/atk-enum-types.h
@@ -1241,6 +1245,7 @@ CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o: /usr/lib/x86_64-linux-gnu/glib-2.0/
 
 CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: .././include/json/json.h
 CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: ../Html.h
+CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: ../Linkedlist.h
 CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: ../Movie.h
 CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: ../MovieComponent.cpp
 CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: ../MovieComponent.h
@@ -1963,6 +1968,7 @@ CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o: /usr/lib/x86_64-linux-gnu/
 
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: .././include/json/json.h
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../Html.h
+CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../Imagelist.h
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../Linkedlist.h
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../Movie.h
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o: ../MovieComponent.h

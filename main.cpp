@@ -8,6 +8,8 @@
 #include "MovieComponent.h"
 #include "Pagina.h"
 #include <math.h>
+#include <gobject/gvalue.h>
+
 
 #define TIMEOUT 250
 int contador=20;
@@ -37,12 +39,54 @@ void previous_clicked(GtkWidget* window, GdkEvent* ev, gpointer userdata)
     g_print ("previous");
 }
 
-void scroll_cb(GtkWidget* window, GdkEvent* ev, gpointer userdata)
-{   if(ev->scroll.direction==0){
+void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
+{
+    memory_display();
+    if(ev->scroll.direction==0){
+
+
         g_print ("scrolled up");
+        for(int i=0;i<g_list_length(actual->getChildren());i++){
+
+            GValue x =  G_VALUE_INIT;
+            GValue y =  G_VALUE_INIT;
+            GtkWidget* child=GTK_WIDGET(g_list_nth_data(actual->getChildren(),i));
+            gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "x", g_value_init (&x, G_TYPE_INT));
+            gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "y", g_value_init (&y, G_TYPE_INT));
+
+
+
+            cout<<x.data->v_int<<" d "<<y.data->v_int<<endl;
+            gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int+10);
+
+
+        }
+
+        cout<<"termine"<<endl;
+        gtk_widget_show_all(actual->getFixed());
+
 }
     if(ev->scroll.direction==1) {
         g_print("scrolled down");
+        for(int i=0;i<g_list_length(actual->getChildren());i++){
+
+            GValue x =  G_VALUE_INIT;
+            GValue y =  G_VALUE_INIT;
+            GtkWidget* child=GTK_WIDGET(g_list_nth_data(actual->getChildren(),i));
+            gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "x", g_value_init (&x, G_TYPE_INT));
+            gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child, "y", g_value_init (&y, G_TYPE_INT));
+
+
+
+            cout<<x.data->v_int<<" d "<<y.data->v_int<<endl;
+            gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int-10);
+
+
+
+        }
+
+        cout<<"termine"<<endl;
+        gtk_widget_show_all(actual->getFixed());
     }
 }
 
@@ -52,6 +96,7 @@ gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
     if (abs(gtk_widget_get_allocated_width(window)-xsize)>100||abs(gtk_widget_get_allocated_height(window)-ysize)>100){
 
        cout<<"resize++++++++++++++++"<<endl;
+        memory_display();
 
         int window_width=gtk_widget_get_allocated_width(window);
         int espacios=actual->getEspacios();
@@ -108,6 +153,7 @@ void memory_display() {
 }
 
 void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
+    memory_display();
     int window_width;
     int espacios;
     int x_space_in_between;
@@ -443,7 +489,7 @@ int main(int argc, char *argv[]) {
     gtk_fixed_put(GTK_FIXED(fixed),numbuttons,0,0);
 
 
-    gtk_fixed_put(GTK_FIXED(fixed),memorylbl,1100,0);
+    gtk_fixed_put(GTK_FIXED(fixed),memorylbl,350,0);
 
     //Movie_node* movieNode1= movie->node_search("Avatar");
     //const gchar *key="Movie name";
@@ -451,7 +497,7 @@ int main(int argc, char *argv[]) {
 
 
 
-    g_signal_connect(window, "scroll-event", G_CALLBACK(scroll_cb), NULL);
+    g_signal_connect(window, "scroll-event", G_CALLBACK(scroll_cb), actual);
     g_signal_connect(window, "configure-event", G_CALLBACK(resize_cb), actual);
     g_signal_connect (window, "key_press_event", G_CALLBACK (on_key_press), actual);
     g_signal_connect(firstbut, "clicked",G_CALLBACK(clickedbut), actual);

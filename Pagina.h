@@ -8,8 +8,13 @@
 #include <iostream>
 #include "Linkedlist.h"
 #include "Movie.h"
+#include <list>
+#define BOOST_FILESYSTEM_VERSION 3
+#define BOOST_FILESYSTEM_NO_DEPRECATED
+#include <boost/filesystem.hpp>
 
 using namespace std;
+namespace fs = ::boost::filesystem;
 class Movie_nodes {
 public:
     string name;
@@ -87,6 +92,10 @@ private:
     GtkWidget* mainbox;
     GList *children=NULL, *iter=NULL;
     int prefsize=100;
+
+public:
+    GList *getChildren() const;
+
 public:
     int getWindowHeight() const;
 
@@ -109,6 +118,7 @@ public:
     void setMoviesinx(int moviesinx);
 
     void setMoviesiny(int moviesiny);
+    void get_all(const fs::path& root, const string& ext, vector<fs::path>& ret);
 
 
 };

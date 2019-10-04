@@ -9,7 +9,7 @@
 #include <iostream>
 #include <gtk/gtk.h>
 #include "Html.h"
-
+#include "Linkedlist.h"
 
 
 using namespace std;
@@ -35,6 +35,16 @@ public:
 class Movie { ;
 
 public:
+    void removeFirstNode()
+    {
+
+        // Move the head pointer to the next node
+        Movie_node* temp = head;
+        head = head->next;
+
+        delete temp;
+
+    }
 
     void insert(string new_data, string year, string IMBDlink, string ranking, string director) {
         Movie_node* new_movie_node = new Movie_node;
@@ -104,6 +114,17 @@ public:
             std::cout<< ptr->name <<" ";
             ptr = ptr->next;
         }
+    }
+
+    int getsize() {
+        int size=0;
+        Movie_node* ptr=new Movie_node;
+        ptr = head;
+        while (ptr != NULL) {
+            ptr = ptr->next;
+            size=size+1;
+        }
+        return size;
     }
 
     Movie_node* head = NULL;

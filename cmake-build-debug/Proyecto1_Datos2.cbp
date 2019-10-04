@@ -126,6 +126,12 @@
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Html.h">
 			<Option target="Proyecto1_Datos2"/>
 		</Unit>
+		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.cpp">
+			<Option target="Proyecto1_Datos2"/>
+		</Unit>
+		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h">
+			<Option target="Proyecto1_Datos2"/>
+		</Unit>
 		<Unit filename="/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.cpp">
 			<Option target="Proyecto1_Datos2"/>
 		</Unit>

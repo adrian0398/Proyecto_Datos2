@@ -98,6 +98,10 @@ json/json.h
 gtk/gtk.h
 -
 
+/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
+iostream
+-
+
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 string
 -
@@ -113,6 +117,8 @@ gtk/gtk.h
 -
 Html.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Html.h
+Linkedlist.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
 gtk/gtk.h
@@ -122,6 +128,14 @@ Movie.h
 VideoPlayer.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
 
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp
+Pagina.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
+MovieComponent.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
+Imagelist.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
+
 /home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
 iostream
 -
@@ -129,6 +143,10 @@ Linkedlist.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 Movie.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
+list
+-
+boost/filesystem.hpp
+-
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
 gtk/gtk.h
@@ -144,28 +162,6 @@ gdk/gdk.h
 gdk/gdkx.h
 -
 iostream
--
-
-/home/adrian/CLionProjects/Proyecto1_Datos2/main.cpp
-stdio.h
--
-string.h
--
-fstream
--
-sstream
--
-Linkedlist.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
-Movie.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
-VideoPlayer.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
-MovieComponent.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
-Pagina.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
-math.h
 -
 
 /usr/include/atk-1.0/atk/atk-enum-types.h

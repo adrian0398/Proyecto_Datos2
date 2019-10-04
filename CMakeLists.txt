@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.3)
 project(Proyecto1_Datos2)
 
 set(CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -std=c++11")
-set(SOURCE_FILES main.cpp linkedlist.h Linkedlist.cpp Linkedlist.h Movie.cpp Movie.h jsoncpp.cpp Html.cpp Html.h MovieComponent.cpp MovieComponent.h VideoPlayer.cpp VideoPlayer.h prueba.cpp prueba.h Pagina.cpp Pagina.h)
+set(SOURCE_FILES main.cpp linkedlist.h Linkedlist.cpp Linkedlist.h Movie.cpp Movie.h jsoncpp.cpp Html.cpp Html.h MovieComponent.cpp MovieComponent.h VideoPlayer.cpp VideoPlayer.h prueba.cpp prueba.h Pagina.cpp Pagina.h Imagelist.cpp Imagelist.h)
 add_executable(Proyecto1_Datos2 ${SOURCE_FILES})
 
 set(CURL_LIBRARY "-lcurl")
