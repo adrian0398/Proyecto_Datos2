@@ -390,8 +390,8 @@ int main(int argc, char *argv[]) {
     espacios=55;
     movie_width=100;
     movie_height=147;
-    window_width=500;
-    window_height=500;
+    window_width=1300;
+    window_height=800;
 
     xsize=window_width;
     ysize=window_height;
