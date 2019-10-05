@@ -618,9 +618,6 @@ CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o
  /usr/include/pango-1.0/pango/pango.h
  /usr/include/pango-1.0/pango/pangocairo.h
  /usr/lib/x86_64-linux-gnu/glib-2.0/include/glibconfig.h
-CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o
- /home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.cpp
- /home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
 CMakeFiles/Proyecto1_Datos2.dir/Linkedlist.cpp.o
  /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.cpp
  /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
@@ -1969,7 +1966,6 @@ CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o
 CMakeFiles/Proyecto1_Datos2.dir/Pagina.cpp.o
  .././include/json/json.h
  /home/adrian/CLionProjects/Proyecto1_Datos2/Html.h
- /home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
  /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
  /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
  /home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h

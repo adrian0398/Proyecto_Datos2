@@ -41,3 +41,6 @@ target_include_directories(Proyecto1_Datos2  PRIVATE ${GST_INCLUDE_DIRS})
 target_link_libraries(Proyecto1_Datos2  ${GST_LIBRARIES})
 
 target_link_libraries(Proyecto1_Datos2  gstvideo-1.0)
+
+
+
