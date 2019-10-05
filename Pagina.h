@@ -38,6 +38,7 @@ public:
     void setmovies();
 
     void draw();
+    void draw2();
 
 private:
     Linkedlist* movielist;
@@ -92,6 +93,13 @@ private:
     GtkWidget* mainbox;
     GList *children=NULL, *iter=NULL;
     int prefsize=100;
+    string ch [12];
+    int contador;
+public:
+    int getPagenum() const;
+
+public:
+    const string *getCh() const;
 
 public:
     GList *getChildren() const;

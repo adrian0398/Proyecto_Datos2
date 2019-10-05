@@ -68,15 +68,9 @@ class VideoPlayer {
 
 /* This function is called when the main window is closed */
     static void delete_event_cb (GtkWidget *widget, GdkEvent *event, CustomData *data) {
-        //stop_cb (NULL, data);
-        std::cout<<"sali"<<std::endl;
-        //pause_cb(NULL,data);
-        //gst_element_set_state(data->playbin, GST_STATE_NULL);
-        //data->state=GST_STATE_NULL;
-        //gst_object_unref(GST_OBJECT(data->playbin));
-        //gst_task_cleanup_all();
 
-        //info(data->playbin);
+        std::cout<<"sali"<<std::endl;
+
         gtk_main_quit();
     }
 

@@ -13,6 +13,7 @@
 
 #define TIMEOUT 250
 int contador=20;
+int firstime=0;
 string name="";
 string director="";
 string year="";
@@ -41,12 +42,17 @@ void previous_clicked(GtkWidget* window, GdkEvent* ev, gpointer userdata)
 
 void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 {
+    if (firstime==0){
+        actual->draw2();
+    }
     memory_display();
     if(ev->scroll.direction==0){
 
 
         g_print ("scrolled up");
+
         for(int i=0;i<g_list_length(actual->getChildren());i++){
+
 
             GValue x =  G_VALUE_INIT;
             GValue y =  G_VALUE_INIT;
@@ -56,8 +62,18 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 
             gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int+10);
 
-
         }
+
+        GValue firsty= G_VALUE_INIT;
+        GtkWidget* child0=GTK_WIDGET(g_list_nth_data(actual->getChildren(),0));
+        gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child0, "y", g_value_init (&firsty, G_TYPE_INT));
+
+        if(firsty.data->v_int>actual->getEspacios()){
+            actual->setmovies();
+            actual->draw2();
+            actual->setPagenum(actual->getPagenum()-1);
+        }
+
 
         cout<<"termine"<<endl;
         gtk_widget_show_all(actual->getFixed());
@@ -65,7 +81,9 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 }
     if(ev->scroll.direction==1) {
         g_print("scrolled down");
+
         for(int i=0;i<g_list_length(actual->getChildren());i++){
+
 
             GValue x =  G_VALUE_INIT;
             GValue y =  G_VALUE_INIT;
@@ -80,13 +98,25 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 
         }
 
+        GValue firsty= G_VALUE_INIT;
+        GtkWidget* child0=GTK_WIDGET(g_list_nth_data(actual->getChildren(),0));
+        gtk_container_child_get_property(GTK_CONTAINER(actual->getFixed()), child0, "y", g_value_init (&firsty, G_TYPE_INT));
+
+        if(firsty.data->v_int<-2*gtk_widget_get_allocated_height(window)+actual->getEspacios()){
+            actual->setmovies();
+            actual->draw2();
+            actual->setPagenum(actual->getPagenum()+1);
+        }
+
         cout<<"termine"<<endl;
         gtk_widget_show_all(actual->getFixed());
     }
+    firstime=1;
 }
 
 gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
 {
+    firstime=0;
 
     if (abs(gtk_widget_get_allocated_width(window)-xsize)>100||abs(gtk_widget_get_allocated_height(window)-ysize)>100){
 
@@ -138,6 +168,7 @@ void memory_display() {
 }
 
 void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
+    firstime=0;
     memory_display();
     int window_width;
     int espacios;

@@ -46,11 +46,125 @@ void Pagina::draw() {
 
     }
 
-    movies->display();
-    GList *children2 = gtk_container_get_children(GTK_CONTAINER(fixed));
 
 
 }
+
+void Pagina::draw2() {
+
+
+    for(int i=0; i<g_list_length(children);i++) {
+        gtk_widget_destroy(GTK_WIDGET(g_list_nth_data(children,i)));
+
+    }
+    children=NULL;
+
+
+
+
+    if(pagenum==1){
+        contador=0;
+        Movie_node *tmp = biggerlist->head;
+
+        int numdecolumna = 1;
+        int numdefila = 1;
+        while (tmp != NULL) {
+            contador=contador+1;
+            int posx;
+            int posy;
+            if (numdecolumna > moviesinx) {
+                numdecolumna = 1;
+                numdefila = numdefila + 1;
+            }
+
+
+            posx = espacios + (numdecolumna - 1) * movie_width + (numdecolumna - 1) * x_space_in_between;
+            posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between;
+
+            if(contador==moviesiny*moviesinx+1){
+                numdefila=1;
+
+            }
+            if(contador>moviesiny*moviesinx){
+                posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between+window_height;
+            }
+
+
+
+
+
+            MovieComponent *movieComponent = new MovieComponent();
+            mainbox = movieComponent->newmovie_box(tmp, prefsize);
+            gtk_fixed_put(GTK_FIXED(fixed), mainbox, posx, posy);
+
+            children = g_list_append(children, mainbox);
+
+            tmp = tmp->next;
+            numdecolumna = numdecolumna + 1;
+    }
+    }
+    else {
+        contador=0;
+        Movie_node *tmp = biggerlist->head;
+
+        int numdecolumna = 1;
+        int numdefila = 1;
+        while (tmp != NULL) {
+            contador=contador+1;
+            int posx;
+            int posy;
+            if (numdecolumna > moviesinx) {
+                numdecolumna = 1;
+                numdefila = numdefila + 1;
+            }
+
+
+            posx = espacios + (numdecolumna - 1) * movie_width + (numdecolumna - 1) * x_space_in_between;
+            posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between-window_height;
+
+
+            if(contador==moviesiny*moviesinx+1){
+                numdefila=1;
+
+            }
+
+            if(contador>moviesiny*moviesinx&&contador<2*moviesiny*moviesinx+1){
+                posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between;
+            }
+            if(contador==2*moviesiny*moviesinx+1){
+                numdefila=1;
+            }
+            if(contador>2*moviesiny*moviesinx){
+                posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between+window_height;
+            }
+
+
+
+
+
+
+
+
+
+
+            MovieComponent *movieComponent = new MovieComponent();
+            mainbox = movieComponent->newmovie_box(tmp, prefsize);
+            gtk_fixed_put(GTK_FIXED(fixed), mainbox, posx, posy);
+
+            children = g_list_append(children, mainbox);
+
+            tmp = tmp->next;
+            numdecolumna = numdecolumna + 1;
+
+
+        }
+    }
+
+
+}
+
+
+
 
 
 
@@ -297,6 +411,14 @@ int Pagina::getWindowWidth() const {
 
 GList *Pagina::getChildren() const {
     return children;
+}
+
+const string *Pagina::getCh() const {
+    return ch;
+}
+
+int Pagina::getPagenum() const {
+    return pagenum;
 }
 
 

@@ -98,6 +98,10 @@ json/json.h
 gtk/gtk.h
 -
 
+/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
+iostream
+-
+
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 string
 -
@@ -116,6 +120,10 @@ Html.h
 Linkedlist.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.cpp
+MovieComponent.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
+
 /home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
 gtk/gtk.h
 -
@@ -123,6 +131,14 @@ Movie.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
 VideoPlayer.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
+
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp
+Pagina.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
+MovieComponent.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
+Imagelist.h
+/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.h
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
 iostream
