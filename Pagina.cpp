@@ -2,16 +2,28 @@
 // Created by adrian on 26/9/19.
 //
 
+
+/**
+ * @file Pagina.cpp
+ * @author Adrian Lopez
+ * @date 26 Sep 2019
+ * @brief File containing methods of Pagina
+ *
+ * This class is the one that controls the display, resize and movies in memory of the program
+ */
+
 #include "Pagina.h"
 #include "MovieComponent.h"
-#include "Imagelist.h"
 
+/*!
+This function is called to draw in the main window the number of movies that can fit for a size
+
+*/
 
 void Pagina::draw() {
 
     for(int i=0; i<g_list_length(children);i++) {
         gtk_widget_destroy(GTK_WIDGET(g_list_nth_data(children,i)));
-
     }
     children=NULL;
 
@@ -50,6 +62,10 @@ void Pagina::draw() {
 
 }
 
+/*!
+This function is called to draw in the main window the movies if a scroll event is detected
+*/
+
 void Pagina::draw2() {
 
 
@@ -60,7 +76,9 @@ void Pagina::draw2() {
     children=NULL;
 
 
-
+/**
+* If page num is 1 only actual and posterior pages are kept
+*/
 
     if(pagenum==1){
         contador=0;
@@ -77,7 +95,9 @@ void Pagina::draw2() {
                 numdefila = numdefila + 1;
             }
 
-
+/**
+* Set window positions
+*/
             posx = espacios + (numdecolumna - 1) * movie_width + (numdecolumna - 1) * x_space_in_between;
             posy = espacios + (numdefila - 1) * movie_height + (numdefila - 1) * y_space_in_between;
 
@@ -101,9 +121,13 @@ void Pagina::draw2() {
 
             tmp = tmp->next;
             numdecolumna = numdecolumna + 1;
+
     }
     }
     else {
+        /**
+* If the num page is other than oone 3 pages need to be saves, previous, actual ande next.
+*/
         contador=0;
         Movie_node *tmp = biggerlist->head;
 
@@ -144,7 +168,9 @@ void Pagina::draw2() {
 
 
 
-
+/**
+* Fix the components in the window
+*/
 
 
             MovieComponent *movieComponent = new MovieComponent();
@@ -166,7 +192,9 @@ void Pagina::draw2() {
 
 
 
-
+/**
+* Class constructor
+*/
 
 Pagina::Pagina(Linkedlist *movielist, int xSpaceInBetween, int ySpaceInBetween, int windowHeight, int windowWidth,
                int movieHeight, int movieWidth, int espacios, int moviesinx, int moviesiny, GtkWidget *fixed, int pagenum)
@@ -178,6 +206,12 @@ Pagina::Pagina(Linkedlist *movielist, int xSpaceInBetween, int ySpaceInBetween, 
 
 
 }
+
+/**
+* Set movies in the lists that are used to change pages.
+ * movies and biggerlist are changed and the movies are inserted are deleted depending on size, number of elements
+*/
+
 
 void Pagina::setmovies() {
 
@@ -206,6 +240,9 @@ void Pagina::setmovies() {
         tmp = tmp->next;
     }
 
+    /**
+* For higher pages three pages are needed
+*/
     if (pagenum > 1) {
         begin = 3 + (pagenum - 2) * (moviesinx * moviesiny);
         end = 3 + (pagenum - 1) * (moviesinx * moviesiny);
@@ -262,6 +299,9 @@ void Pagina::setmovies() {
     }
 
 
+    /**
+* Change list and show only elements that are needed
+*/
 
     if (biggerlist->getsize() > 3 * moviesinx * moviesiny) {
 
@@ -276,6 +316,11 @@ void Pagina::setmovies() {
 
 
     }
+
+
+    /**
+* Delete images that are not needed to free memory.
+*/
     const fs::path root = "/home/adrian/CLionProjects/Proyecto1_Datos2";
     const string ext = ".jpg";
     vector<fs::path> ret;
@@ -297,6 +342,7 @@ void Pagina::setmovies() {
         }
         if(encontrado==false){
             remove(ret[i].c_str());
+            delete(tmp10);
         }
 
 }
@@ -311,6 +357,9 @@ void Pagina::setmovies() {
 
 }
 
+/**
+* Show all .jpg files in folder
+*/
 void Pagina::get_all(const fs::path& root, const string& ext, vector<fs::path>& ret)
 {
     if(!fs::exists(root) || !fs::is_directory(root)) return;
@@ -327,6 +376,10 @@ void Pagina::get_all(const fs::path& root, const string& ext, vector<fs::path>& 
 
 }
 
+
+/**
+* Setter and getters of variables.
+*/
 
 
 void Pagina::setPagenum(int pagenum) {

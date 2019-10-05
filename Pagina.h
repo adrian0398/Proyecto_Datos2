@@ -2,6 +2,17 @@
 // Created by adrian on 26/9/19.
 //
 
+/**
+ * @file Pagina.h
+ * @author Adrian Lopez
+ * @date 26 Sep 2019
+ * @brief Header file of Pagina that contains the methods that are used to manipulate pages.
+ *
+ * Control of the pages and getter and setters to change and manipulate variables from main
+ */
+
+
+
 #ifndef PROYECTO1_DATOS2_PAGINA_H
 #define PROYECTO1_DATOS2_PAGINA_H
 
@@ -15,21 +26,29 @@
 
 using namespace std;
 namespace fs = ::boost::filesystem;
+
+/**
+* A class node that save variables to the object
+*/
 class Movie_nodes {
 public:
-    string name;
-    string year;
-    string IMBDlink;
-    string ranking;
-    string Summary;
-    string image;
-    string videoURl;
-    string director;
-    Movie_nodes* next;
+    string name; /**< Movie name*/
+    string year; /**< Year of the movie */
+    string IMBDlink; /**< link that is used to search with curl */
+    string ranking; /**< movie ranking*/
+    string Summary;/**< movie summary*/
+    string image; /**< movieiimage that will be display in the main window*/
+    string videoURl; /**< Url of the video that is obtain from the page */
+    string director; /**< Director of the video t */
+    Movie_nodes* next; /**< Next reference*/
 };
 
 // numero de peli inical, tamanox, tamano y, espacio, altopeli, anchopeli, espaciosotros
 //pasar 3+cantidad de pelis
+/**
+* A class that manages automatically the pages and set and get variables from them
+*/
+
 class Pagina {
 public:
     Pagina(Linkedlist *movielist, int xSpaceInBetween, int ySpaceInBetween, int windowHeight, int windowWidth,

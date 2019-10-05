@@ -1,3 +1,12 @@
+/**
+ * @file main.cpp
+ * @author Adrian Lopez
+ * @brief Main file
+ * Base of GUI using gtk and all methods involve this one.
+ */
+
+
+
 #include <stdio.h>
 #include <string.h>
 #include <fstream>
@@ -299,21 +308,12 @@ int main(int argc, char *argv[]) {
     int pagina=1;
 
     Linkedlist* l=new Linkedlist;
-    Movie* movie=new Movie;
-    Movie* indisplay=new Movie;
+
 
     GtkWidget *window;
     GtkWidget *layout;
     GtkWidget *image;
-    GtkWidget *image2;
-    GtkWidget *button;
-    GtkWidget *container;
-    GtkWidget *containermovie;
-    GtkWidget *title;
-    GtkWidget *image20;
-    GtkWidget *yearstring;
-    GtkWidget *previous;
-    GtkWidget *next;
+
     gtk_init(&argc, &argv);
 
     x_space_in_between=20;

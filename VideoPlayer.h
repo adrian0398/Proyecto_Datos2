@@ -2,6 +2,17 @@
 // Created by adrian on 19/9/19.
 //
 
+/**
+ * @file VideoPlayer.h
+ * @author Adrian Lopez
+ * @date 19 Sep 2019
+ * @brief Class for playing the video in streaming
+ *
+ * The class creates another gtk window and shows details of the movie and streams the video.
+ */
+
+
+
 #ifndef PROJECTS_VIDEOPLAYER_H
 #define PROJECTS_VIDEOPLAYER_H
 #include <gtk/gtk.h>
@@ -15,23 +26,35 @@
 #include <iostream>
 
 
+/**
+* A class to play videos and show a second window to show important details of the movie
+*/
 class VideoPlayer {
+/**
+* Structure to contain all info of streaming and pass it throught methods
+*/
 
-/* Structure to contain all our information, so we can pass it around */
     typedef struct _CustomData {
-        GstElement *playbin;           /* Our one and only pipeline */
+        /*@{*/
+        GstElement *playbin;  /**< pipeline */
 
-        GtkWidget *slider;              /* Slider widget to keep track of current position */
-        GtkWidget *streams_list;        /* Text widget to display info about the streams */
-        gulong slider_update_signal_id; /* Signal ID for the slider update signal */
+        GtkWidget *slider;     /**< slider to pause and play  */
+        GtkWidget *streams_list;    /**< Text widget to display info */
+        gulong slider_update_signal_id; /**< slider update*/
 
-        GstState state;                 /* Current state of the pipeline */
-        gint64 duration;                /* Duration of the clip, in nanoseconds */
+        GstState state;      /**< playing state */
+        gint64 duration;       /**< duration of stream */
+        /*@}*/
     } CustomData;
 
-/* This function is called when the GUI toolkit creates the physical window that will hold the video.
- * At this point we can retrieve its handler (which has a different meaning depending on the windowing system)
- * and pass it to GStreamer through the VideoOverlay interface. */
+
+/*!
+This function is called when the GUI toolkit creates the physical window that will hold the video.
+ * and pass it to GStreamer.
+@param[in]  *widget   Main window widget
+@param[in]  *data    data passed
+*/
+
     static void realize_cb (GtkWidget *widget, CustomData *data) {
         GdkWindow *window = gtk_widget_get_window (widget);
         guintptr window_handle;
@@ -51,44 +74,66 @@ class VideoPlayer {
         gst_video_overlay_set_window_handle (GST_VIDEO_OVERLAY (data->playbin), window_handle);
     }
 
-/* This function is called when the PLAY button is clicked */
+/*!
+This function is called when the play button is clicked.
+@param[in]  *button   Button object
+@param[in]  *data    data passed
+*/
     static void play_cb (GtkButton *button, CustomData *data) {
         gst_element_set_state (data->playbin, GST_STATE_PLAYING);
     }
 
-/* This function is called when the PAUSE button is clicked */
+/*!
+This function is called when the play button is clicked.
+@param[in]  *button   Button object
+@param[in]  *data    data passed
+*/
     static void pause_cb (GtkButton *button, CustomData *data) {
         gst_element_set_state (data->playbin, GST_STATE_PAUSED);
     }
 
-/* This function is called when the STOP button is clicked */
+/*!
+This function is called when the play stop is clicked.
+
+@param[in]  *button   Button object
+@param[in]  *data    data passed
+*/
     static void stop_cb (GtkButton *button, CustomData *data) {
         gst_element_set_state (data->playbin, GST_STATE_READY);
     }
 
-/* This function is called when the main window is closed */
+/*!
+This function is called when the main window is closed.
+@param[in]  *Widget   window closed
+@param[in]  *data    data passed
+ @param[in]  *event   closed event
+*/
     static void delete_event_cb (GtkWidget *widget, GdkEvent *event, CustomData *data) {
 
         std::cout<<"sali"<<std::endl;
 
         gtk_main_quit();
     }
-
+/*!
+This function obtains the info of the elements
+@param[in]  *GSTElement
+@param[in]  *element   elements info
+*/
     static void info(const GstElement *const element)
     {
         std::cout << "count: " << GST_OBJECT_REFCOUNT(element) << std::endl;
 
     }
 
-/* This function is called everytime the video window needs to be redrawn (due to damage/exposure,
- * rescaling, etc). GStreamer takes care of this in the PAUSED and PLAYING states, otherwise,
- * we simply draw a black rectangle to avoid garbage showing up. */
+/*!
+This function is called  to draw to enable streaming, Cairo is a 2D graphics library which we use here to clean the video window.
+@param[in]  *widget  Where the video is
+@param[in]  *data    data passed that is the info of the video
+*/
     static gboolean draw_cb (GtkWidget *widget, cairo_t *cr, CustomData *data) {
         if (data->state < GST_STATE_PAUSED) {
             GtkAllocation allocation;
 
-            /* Cairo is a 2D graphics library which we use here to clean the video window.
-             * It is used by GStreamer for other reasons, so it will always be available to us. */
             gtk_widget_get_allocation (widget, &allocation);
             cairo_set_source_rgb (cr, 0, 0, 0);
             cairo_rectangle (cr, 0, 0, allocation.width, allocation.height);
@@ -97,9 +142,11 @@ class VideoPlayer {
 
         return FALSE;
     }
-
-/* This function is called when the slider changes its position. We perform a seek to the
- * new position here. */
+/*!
+This function is called  when the slider change the position so a refresh is needed.
+@param[in]  *range  range of the slider.
+@param[in]  *data    data passed that is the info of the video
+*/
     static void slider_cb (GtkRange *range, CustomData *data) {
         gdouble value = gtk_range_get_value (GTK_RANGE (data->slider));
         gst_element_seek_simple (data->playbin, GST_FORMAT_TIME,
@@ -107,7 +154,16 @@ class VideoPlayer {
                                  (gint64)(value * GST_SECOND));
     }
 
-/* This creates all the GTK+ widgets that compose our application, and registers the callbacks */
+
+/*!
+ * Creation of GTK widgets and use of callbacks
+@param[in]  *movie_name  movie info to be display on the main window
+@param[in]  *movie_summary movie info to be display on the main window
+@param[in]  *movie_director  movie info to be display on the main window
+@param[in]  *movie_imagename  movie info to be display on the main window
+@param[in]  *movie_movie_ranking  movie info to be display on the main window
+@param[in]  *data    data passed that is the info of the video
+*/
 
     static void create_ui (CustomData *data,std::string movie_name,std::string movie_year,std::string movie_summary,std::string movie_director,std::string movie_imagename,std::string movie_ranking) {
         GtkWidget *main_window;  /* The uppermost window, containing all other windows */
@@ -130,7 +186,7 @@ class VideoPlayer {
         gtk_layout_put(GTK_LAYOUT(prueba), image, 0, 0);
 
 
-
+        //callbacks in the program
         g_signal_connect (G_OBJECT (main_window), "delete-event", G_CALLBACK (delete_event_cb), data);
 
         video_window = gtk_drawing_area_new ();
@@ -161,6 +217,9 @@ class VideoPlayer {
         gtk_box_pack_start (GTK_BOX (controls), stop_button, FALSE, FALSE, 2);
         gtk_box_pack_start (GTK_BOX (controls), data->slider, TRUE, TRUE, 2);
 
+/**
+* Creation of the window gui, with labels and the stream video.
+*/
 
 
         GtkWidget* fixed;
@@ -244,15 +303,17 @@ class VideoPlayer {
         gtk_widget_show_all (main_window);
     }
 
-/* This function is called periodically to refresh the GUI */
+/*!
+ * This method is call to refresh the UI
+@param[in]  *data    data passed that is the info of the video
+*/
     static gboolean refresh_ui (CustomData *data) {
         gint64 current = -1;
 
-        /* We do not want to update anything unless we are in the PAUSED or PLAYING states */
         if (data->state < GST_STATE_PAUSED)
             return TRUE;
 
-        /* If we didn't know it yet, query the stream duration */
+
         if (!GST_CLOCK_TIME_IS_VALID (data->duration)) {
             if (!gst_element_query_duration (data->playbin, GST_FORMAT_TIME, &data->duration)) {
                 g_printerr ("Could not query current duration.\n");
@@ -266,41 +327,57 @@ class VideoPlayer {
         return TRUE;
     }
 
-/* This function is called when new metadata is discovered in the stream */
+/*!
+ * Call when new metadata is descover
+@param[in]  *data    data passed that is the info of the video
+ @param[in]  *playbin  pipeline
+*/
     static void tags_cb (GstElement *playbin, gint stream, CustomData *data) {
-        /* We are possibly in a GStreamer working thread, so we notify the main
-         * thread of this event through a message in the bus */
+
         gst_element_post_message (playbin,
                                   gst_message_new_application (GST_OBJECT (playbin),
                                                                gst_structure_new_empty ("tags-changed")));
     }
 
-/* This function is called when an error message is posted on the bus */
+/*!
+ * This method is call if some error ocurre in execution
+ @param[in]  *bus bus that passes the data
+ @param[in]  *msg error message
+@param[in]  *data    data passed that is the info of the video
+*/
     static void error_cb (GstBus *bus, GstMessage *msg, CustomData *data) {
         GError *err;
         gchar *debug_info;
 
-        /* Print error details on the screen */
+
         gst_message_parse_error (msg, &err, &debug_info);
         g_printerr ("Error received from element %s: %s\n", GST_OBJECT_NAME (msg->src), err->message);
         g_printerr ("Debugging information: %s\n", debug_info ? debug_info : "none");
         g_clear_error (&err);
         g_free (debug_info);
 
-        /* Set the pipeline to READY (which stops playback) */
+
         gst_element_set_state (data->playbin, GST_STATE_READY);
     }
 
-/* This function is called when an End-Of-Stream message is posted on the bus.
- * We just set the pipeline to READY (which stops playback) */
+/*!
+ * This method is call if some error ocurre in execution
+ @param[in]  *bus bus that passes the data
+ @param[in]  *msg error message
+@param[in]  *data    data passed that is the info of the video
+*/
     static void eos_cb (GstBus *bus, GstMessage *msg, CustomData *data) {
         g_print ("End-Of-Stream reached.\n");
         gst_element_set_state (data->playbin, GST_STATE_READY);
 
     }
 
-/* This function is called when the pipeline changes states. We use it to
- * keep track of the current state. */
+/*!
+ * This method is call when the state changed as a callback
+ @param[in]  *bus bus that passes the data
+ @param[in]  *msg message
+@param[in]  *data    data passed that is the info of the video
+*/
     static void state_changed_cb (GstBus *bus, GstMessage *msg, CustomData *data) {
         GstState old_state, new_state, pending_state;
         gst_message_parse_state_changed (msg, &old_state, &new_state, &pending_state);
@@ -316,6 +393,11 @@ class VideoPlayer {
 
 
 public:
+    /*!
+ * This method starts the videoplayer
+     * Receives the movie properties and inits the gtk, this will put order to other methods.
+ @param[in]  movie variables variables of the movie are pass to be saved and display on the window.
+*/
     void start_videoplayer(std::string movie_name,std::string movie_year,std::string movie_summary,std::string movie_director,std::string movie_imagename,std::string movie_ranking,std::string movieurl) {
         CustomData data;
         GstStateChangeReturn ret;
@@ -345,8 +427,9 @@ public:
 
         g_object_set (data.playbin, "uri", movieurl.c_str(), NULL);
 
-
-        /* Connect to interesting signals in playbin */
+        /**
+* Conect signals to the playbin
+*/
         g_signal_connect (G_OBJECT (data.playbin), "video-tags-changed", (GCallback) tags_cb, &data);
         g_signal_connect (G_OBJECT (data.playbin), "audio-tags-changed", (GCallback) tags_cb, &data);
         g_signal_connect (G_OBJECT (data.playbin), "text-tags-changed", (GCallback) tags_cb, &data);
@@ -365,22 +448,23 @@ public:
 
         gst_object_unref (bus);
 
-        /* Start playing */
+/**
+* Start streaming and playing.
+*/
         ret = gst_element_set_state (data.playbin, GST_STATE_PLAYING);
         if (ret == GST_STATE_CHANGE_FAILURE) {
             g_printerr ("Unable to set the pipeline to the playing state.\n");
             gst_object_unref (data.playbin);
         }
 
-        /* Register a function that GLib will call every second */
+
         g_timeout_add_seconds (1, (GSourceFunc)refresh_ui, &data);
 
-        /* Start the GTK main loop. We will not regain control until gtk_main_quit is called. */
         gtk_main ();
 
-        /* Free resources */
-        //gst_element_set_state (data.playbin, GST_STATE_NULL);
-        //gst_object_unref (data.playbin);
+/**
+* Free memory resources
+*/
 
         gst_element_set_state(data.playbin, GST_STATE_NULL);
         data.state=GST_STATE_NULL;

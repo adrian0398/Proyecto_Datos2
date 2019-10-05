@@ -120,10 +120,6 @@ Html.h
 Linkedlist.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.cpp
-MovieComponent.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
-
 /home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
 gtk/gtk.h
 -

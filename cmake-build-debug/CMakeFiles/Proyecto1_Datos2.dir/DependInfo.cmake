@@ -5,7 +5,6 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/adrian/CLionProjects/Proyecto1_Datos2/Html.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.o"
-  "/home/adrian/CLionProjects/Proyecto1_Datos2/Imagelist.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Linkedlist.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/Movie.cpp.o"
   "/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.cpp" "/home/adrian/CLionProjects/Proyecto1_Datos2/cmake-build-debug/CMakeFiles/Proyecto1_Datos2.dir/MovieComponent.cpp.o"

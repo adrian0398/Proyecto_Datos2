@@ -2,6 +2,20 @@
 // Created by adrian on 15/9/19.
 //
 
+/**
+ * @file Html.cpp
+ * @author Adrian Lopez
+ * @date  15 Set 2019
+ * @brief File containing methods to get Html get request from Imdb.
+ *
+ * Usage of curl library to read and parse strings to obtain url to images, video and summary.
+ */
+
+
+
+
+
+
 #include "Html.h"
 
 

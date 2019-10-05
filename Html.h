@@ -2,6 +2,14 @@
 // Created by adrian on 15/9/19.
 //
 
+/**
+ * @file Html.h
+ * @author Adrian Lopez
+ * @date 15 Set 2019
+ * @brief Header file to declare functions dor Html get request
+ *
+ */
+
 #ifndef PROJECTS_HTML_H
 #define PROJECTS_HTML_H
 

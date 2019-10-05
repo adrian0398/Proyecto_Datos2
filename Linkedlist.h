@@ -2,6 +2,15 @@
 // Created by adrian on 14/9/19.
 //
 
+/**
+ * @file Linkedlist.h
+ * @author Adrian Lopez
+ * @date 14 Sep 2019
+ * @brief File to create normal linked list of Nodes
+ *
+ * Declares methods for easy manipulation of linked lists
+ */
+
 #ifndef PROJECTS_LINKEDLIST_H
 #define PROJECTS_LINKEDLIST_H
 
@@ -11,20 +20,29 @@
 
 
 using namespace std;
+/*!
+*Node that saves the data of the movie
+*/
 
 class Node {
 public:
-    string name;
-    string director;
-    string year;
-    string IMBDlink;
-    string ranking;
-    Node* next;
+    string name;  /**< Movie name from CSV*/
+    string director;  /**< Movie director from CSV*/
+    string year;   /**< Movie year from CSV*/
+    string IMBDlink; /**< Movie IMBDlin form CSV*/
+    string ranking; /**< Movie ranking from CSV*/
+    Node* next;  /**< reference*/
 };
-
+/*!
+*Linked list to save all the movies get from the csv
+*/
 class Linkedlist {
 
+    /*!
+   *Linked list method to display the linked list
+   * Use tmp node to display each node until linked list is NULL
 
+   */
 private:
     void display(){
         Node* ptr=new Node;

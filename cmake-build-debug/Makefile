@@ -150,33 +150,6 @@ Html.cpp.s:
 	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Html.cpp.s
 .PHONY : Html.cpp.s
 
-Imagelist.o: Imagelist.cpp.o
-
-.PHONY : Imagelist.o
-
-# target to build an object file
-Imagelist.cpp.o:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.o
-.PHONY : Imagelist.cpp.o
-
-Imagelist.i: Imagelist.cpp.i
-
-.PHONY : Imagelist.i
-
-# target to preprocess a source file
-Imagelist.cpp.i:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.i
-.PHONY : Imagelist.cpp.i
-
-Imagelist.s: Imagelist.cpp.s
-
-.PHONY : Imagelist.s
-
-# target to generate assembly for a file
-Imagelist.cpp.s:
-	$(MAKE) -f CMakeFiles/Proyecto1_Datos2.dir/build.make CMakeFiles/Proyecto1_Datos2.dir/Imagelist.cpp.s
-.PHONY : Imagelist.cpp.s
-
 Linkedlist.o: Linkedlist.cpp.o
 
 .PHONY : Linkedlist.o
@@ -378,9 +351,6 @@ help:
 	@echo "... Html.o"
 	@echo "... Html.i"
 	@echo "... Html.s"
-	@echo "... Imagelist.o"
-	@echo "... Imagelist.i"
-	@echo "... Imagelist.s"
 	@echo "... Linkedlist.o"
 	@echo "... Linkedlist.i"
 	@echo "... Linkedlist.s"
