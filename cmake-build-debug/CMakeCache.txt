@@ -17,6 +17,10 @@
 //Build documentation
 BUILD_DOC:BOOL=ON
 
+//Create and install the HTML based API
+//\ndocumentation (requires Doxygen)
+BUILD_DOCUMENTATION:BOOL=ON
+
 //Boost atomic library (debug)
 Boost_ATOMIC_LIBRARY_DEBUG:FILEPATH=/usr/lib/x86_64-linux-gnu/libboost_atomic.so
 

@@ -1,0 +1,133 @@
+\hypertarget{classMovie}{}\section{Movie Class Reference}
+\label{classMovie}\index{Movie@{Movie}}
+
+
+{\ttfamily \#include $<$Movie.\+h$>$}
+
+
+
+Collaboration diagram for Movie\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classMovie_ab61d3e9aaffa732a591ef9dd0b8547c7}{remove\+First\+Node} ()
+\item 
+void \hyperlink{classMovie_ac77654f0f844f7ed5375a328870feb56}{insert} (string new\+\_\+data, string year, string I\+M\+B\+Dlink, string ranking, string director)
+\item 
+bool \hyperlink{classMovie_adf12d6f970ce999431b200deb2cd96e6}{search} (string value)
+\item 
+\hyperlink{classMovie__node}{Movie\+\_\+node} $\ast$ \hyperlink{classMovie_a5f3c64dc7e048522546172dd109e45a5}{node\+\_\+search} (string value)
+\item 
+void \hyperlink{classMovie_ac363bb217f26e9a82eda201df3985600}{display} ()
+\item 
+int \hyperlink{classMovie_af9b0909f4df25af7a9127211fbb17c1f}{getsize} ()
+\item 
+void \hyperlink{classMovie_af3e7d275618466e187fe13fc896e07a3}{insertready} (string new\+\_\+data, string year, string I\+M\+B\+Dlink, string ranking, string director, string image, string Summary, string video\+Url)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMovie_ad29efa57fc6ec1256c91626d3ea1e7b2}\label{classMovie_ad29efa57fc6ec1256c91626d3ea1e7b2}} 
+\hyperlink{classMovie__node}{Movie\+\_\+node} $\ast$ {\bfseries head} = N\+U\+LL
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Class to make a linked list of movies 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMovie_ac363bb217f26e9a82eda201df3985600}\label{classMovie_ac363bb217f26e9a82eda201df3985600}} 
+\index{Movie@{Movie}!display@{display}}
+\index{display@{display}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{display()}{display()}}
+{\footnotesize\ttfamily void Movie\+::display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to display the linked list Use tmp node to display each node until linked list is N\+U\+LL \mbox{\Hypertarget{classMovie_af9b0909f4df25af7a9127211fbb17c1f}\label{classMovie_af9b0909f4df25af7a9127211fbb17c1f}} 
+\index{Movie@{Movie}!getsize@{getsize}}
+\index{getsize@{getsize}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{getsize()}{getsize()}}
+{\footnotesize\ttfamily int Movie\+::getsize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list to get the size of the linked list Use tmp node and a counter to get the number of nodes in the list \begin{DoxyReturn}{Returns}
+size ,it returns the size of the list. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMovie_ac77654f0f844f7ed5375a328870feb56}\label{classMovie_ac77654f0f844f7ed5375a328870feb56}} 
+\index{Movie@{Movie}!insert@{insert}}
+\index{insert@{insert}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Movie\+::insert (\begin{DoxyParamCaption}\item[{string}]{new\+\_\+data,  }\item[{string}]{year,  }\item[{string}]{I\+M\+B\+Dlink,  }\item[{string}]{ranking,  }\item[{string}]{director }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to insert at the end of the list. Pass movie data and make a node that saves all of it\textquotesingle{}s info 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em newdata} & name of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em year} & year of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em I\+M\+B\+Dlink} & I\+M\+DB link to search the url elements \\
+\hline
+\mbox{\tt in}  & {\em director} & director of the movie to be inserted \\
+\hline
+\end{DoxyParams}
+Use H\+T\+ML methods to get the elements of the I\+M\+BD link and save it in the node\mbox{\Hypertarget{classMovie_af3e7d275618466e187fe13fc896e07a3}\label{classMovie_af3e7d275618466e187fe13fc896e07a3}} 
+\index{Movie@{Movie}!insertready@{insertready}}
+\index{insertready@{insertready}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{insertready()}{insertready()}}
+{\footnotesize\ttfamily void Movie\+::insertready (\begin{DoxyParamCaption}\item[{string}]{new\+\_\+data,  }\item[{string}]{year,  }\item[{string}]{I\+M\+B\+Dlink,  }\item[{string}]{ranking,  }\item[{string}]{director,  }\item[{string}]{image,  }\item[{string}]{Summary,  }\item[{string}]{video\+Url }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to insert a node with all the parameters Use an existing list to get the values. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em newdata} & name of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em year} & year of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em I\+M\+B\+Dlink} & I\+M\+DB link to search the url elements \\
+\hline
+\mbox{\tt in}  & {\em director} & director of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em image} & image of the movie previously getted \\
+\hline
+\mbox{\tt in}  & {\em Summary} & Summary of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em video\+Url} & video\+Url of the movie to be inserted \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMovie_a5f3c64dc7e048522546172dd109e45a5}\label{classMovie_a5f3c64dc7e048522546172dd109e45a5}} 
+\index{Movie@{Movie}!node\+\_\+search@{node\+\_\+search}}
+\index{node\+\_\+search@{node\+\_\+search}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{node\+\_\+search()}{node\_search()}}
+{\footnotesize\ttfamily \hyperlink{classMovie__node}{Movie\+\_\+node}$\ast$ Movie\+::node\+\_\+search (\begin{DoxyParamCaption}\item[{string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to search a node with astring value Use tmp node to search the node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & value to be searched in the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Movie\+\_\+node$\ast$, it returns the node in the linked list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classMovie_ab61d3e9aaffa732a591ef9dd0b8547c7}\label{classMovie_ab61d3e9aaffa732a591ef9dd0b8547c7}} 
+\index{Movie@{Movie}!remove\+First\+Node@{remove\+First\+Node}}
+\index{remove\+First\+Node@{remove\+First\+Node}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{remove\+First\+Node()}{removeFirstNode()}}
+{\footnotesize\ttfamily void Movie\+::remove\+First\+Node (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to remove the first method by changing the head. \mbox{\Hypertarget{classMovie_adf12d6f970ce999431b200deb2cd96e6}\label{classMovie_adf12d6f970ce999431b200deb2cd96e6}} 
+\index{Movie@{Movie}!search@{search}}
+\index{search@{search}!Movie@{Movie}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily bool Movie\+::search (\begin{DoxyParamCaption}\item[{string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to search a string value Use tmp node to search the node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & value to be searched in the list \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True or False that depends on value 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Movie_8h}{Movie.\+h}\end{DoxyCompactItemize}

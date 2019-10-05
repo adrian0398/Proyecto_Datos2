@@ -1,0 +1,37 @@
+\hypertarget{classVideoPlayer}{}\section{Video\+Player Class Reference}
+\label{classVideoPlayer}\index{Video\+Player@{Video\+Player}}
+
+
+{\ttfamily \#include $<$Video\+Player.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classVideoPlayer_a351460db09fb4b4158711f99316ce512}{start\+\_\+videoplayer} (std\+::string movie\+\_\+name, std\+::string movie\+\_\+year, std\+::string movie\+\_\+summary, std\+::string movie\+\_\+director, std\+::string movie\+\_\+imagename, std\+::string movie\+\_\+ranking, std\+::string movieurl)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to play videos and show a second window to show important details of the movie 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classVideoPlayer_a351460db09fb4b4158711f99316ce512}\label{classVideoPlayer_a351460db09fb4b4158711f99316ce512}} 
+\index{Video\+Player@{Video\+Player}!start\+\_\+videoplayer@{start\+\_\+videoplayer}}
+\index{start\+\_\+videoplayer@{start\+\_\+videoplayer}!Video\+Player@{Video\+Player}}
+\subsubsection{\texorpdfstring{start\+\_\+videoplayer()}{start\_videoplayer()}}
+{\footnotesize\ttfamily void Video\+Player\+::start\+\_\+videoplayer (\begin{DoxyParamCaption}\item[{std\+::string}]{movie\+\_\+name,  }\item[{std\+::string}]{movie\+\_\+year,  }\item[{std\+::string}]{movie\+\_\+summary,  }\item[{std\+::string}]{movie\+\_\+director,  }\item[{std\+::string}]{movie\+\_\+imagename,  }\item[{std\+::string}]{movie\+\_\+ranking,  }\item[{std\+::string}]{movieurl }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+This method starts the videoplayer Receives the movie properties and inits the gtk, this will put order to other methods. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em movie} & variables variables of the movie are pass to be saved and display on the window. \\
+\hline
+\end{DoxyParams}
+Conect signals to the playbin
+
+Start streaming and playing.
+
+Free memory resources
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{VideoPlayer_8h}{Video\+Player.\+h}\end{DoxyCompactItemize}

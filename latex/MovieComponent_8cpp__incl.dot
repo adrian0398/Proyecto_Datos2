@@ -1,0 +1,45 @@
+digraph "MovieComponent.cpp"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node0 [label="MovieComponent.cpp",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node0 -> Node1 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 [label="MovieComponent.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MovieComponent_8h.html",tooltip="Header file to declare methods of the Movie Component. "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="gtk/gtk.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="Movie.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Movie_8h.html",tooltip="File for using linked list to save movie nodes. "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="string",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="iostream",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node3 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node6 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="Html.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Html_8h.html",tooltip="Header file to declare functions dor Html get request. "];
+  Node6 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node6 -> Node7 [color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="curl/curl.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node8 [color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="regex",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node9 [color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="json/json.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node6 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 -> Node10 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="Linkedlist.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Linkedlist_8h.html",tooltip="File to create normal linked list of Nodes. "];
+  Node10 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node10 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node11 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="VideoPlayer.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$VideoPlayer_8h.html",tooltip="Class for playing the video in streaming. "];
+  Node11 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node12 [color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="gst/gst.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node13 [color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="gst/video/videooverlay.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node14 [color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="gdk/gdk.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node15 [color="midnightblue",fontsize="10",style="solid"];
+  Node15 [label="gdk/gdkx.h",height=0.2,width=0.4,color="grey75", fillcolor="white", style="filled"];
+  Node11 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+}

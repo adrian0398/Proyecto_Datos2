@@ -1,0 +1,253 @@
+\hypertarget{main_8cpp}{}\section{main.\+cpp File Reference}
+\label{main_8cpp}\index{main.\+cpp@{main.\+cpp}}
+
+
+Main file Base of G\+UI using gtk and all methods involve this one.  
+
+
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include \char`\"{}Linkedlist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Movie.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Video\+Player.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Movie\+Component.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pagina.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include $<$gobject/gvalue.\+h$>$}\newline
+Include dependency graph for main.\+cpp\+:
+% FIG 0
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a45ba202b05caf39795aeca91b0ae547e}\label{main_8cpp_a45ba202b05caf39795aeca91b0ae547e}} 
+\#define {\bfseries T\+I\+M\+E\+O\+UT}~250
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a5c600e22ad7fbf94b8f4a1d33a60c9c9}{memory\+\_\+display} ()
+\item 
+void \hyperlink{main_8cpp_a35fc1462889071dbf3a82f4806c5fde9}{scroll\+\_\+cb} (Gtk\+Widget $\ast$window, Gdk\+Event $\ast$ev, \hyperlink{classPagina}{Pagina} $\ast$actual)
+\item 
+gboolean \hyperlink{main_8cpp_a1de7958c7d502bd728636a5f620c8a87}{resize\+\_\+cb} (Gtk\+Widget $\ast$window, Gdk\+Event $\ast$ev, \hyperlink{classPagina}{Pagina} $\ast$actual)
+\item 
+void \hyperlink{main_8cpp_aaf5df1469a7fca132c70c044bb069881}{on\+\_\+key\+\_\+press} (Gtk\+Widget $\ast$widget, Gdk\+Event\+Key $\ast$event, \hyperlink{classPagina}{Pagina} $\ast$actual)
+\item 
+int \hyperlink{main_8cpp_aed790d10ca098077e9ebe0800417c6b1}{num\+\_\+moviex} (int window\+\_\+width, int espacios, int x\+\_\+space\+\_\+in\+\_\+between, int movie\+\_\+width)
+\item 
+int \hyperlink{main_8cpp_a250e8f33d3c7e9fd6a649622a8ed0df1}{num\+\_\+moviey} (int window\+\_\+height, int espacios, int y\+\_\+space\+\_\+in\+\_\+between, int movie\+\_\+height)
+\item 
+void \hyperlink{main_8cpp_a7de348312f7339acc7b7a506b7d3d493}{actualizarbotones} (int pagenum)
+\item 
+void \hyperlink{main_8cpp_acfe676ca406b6984aa57225a53635726}{clickedbut} (Gtk\+Widget $\ast$widget, Gdk\+Event\+Key $\ast$event, \hyperlink{classPagina}{Pagina} $\ast$actual)
+\item 
+int \hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8cpp_a2c6a3fb7cddd9bd7254692264962b5b3}\label{main_8cpp_a2c6a3fb7cddd9bd7254692264962b5b3}} 
+int {\bfseries contador} =20
+\item 
+\mbox{\Hypertarget{main_8cpp_af7433d41037d9b66255da597f7979908}\label{main_8cpp_af7433d41037d9b66255da597f7979908}} 
+int {\bfseries firstime} =0
+\item 
+\mbox{\Hypertarget{main_8cpp_a8ccf841cb59e451791bcb2e1ac4f1edc}\label{main_8cpp_a8ccf841cb59e451791bcb2e1ac4f1edc}} 
+string {\bfseries name} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_aae60d40dde9b66bb5ed22667488fb4d0}\label{main_8cpp_aae60d40dde9b66bb5ed22667488fb4d0}} 
+string {\bfseries director} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a91164526890c7c682b8091c1ea10a7c0}\label{main_8cpp_a91164526890c7c682b8091c1ea10a7c0}} 
+string {\bfseries year} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a57a791095930d7ec660ef170766c5209}\label{main_8cpp_a57a791095930d7ec660ef170766c5209}} 
+string {\bfseries score} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a0f5181fbed6e439fb07ca96690a57e51}\label{main_8cpp_a0f5181fbed6e439fb07ca96690a57e51}} 
+string {\bfseries I\+M\+B\+Dlink} =\char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{main_8cpp_a1645ea5fbc88019b52877651217d918e}\label{main_8cpp_a1645ea5fbc88019b52877651217d918e}} 
+Gtk\+Widget $\ast$ {\bfseries memorylbl}
+\item 
+\mbox{\Hypertarget{main_8cpp_a22393a88190768de0d23b57e2e33de69}\label{main_8cpp_a22393a88190768de0d23b57e2e33de69}} 
+Gtk\+Widget $\ast$ {\bfseries firstbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_a506323cf8dcff401dfdac931758f151a}\label{main_8cpp_a506323cf8dcff401dfdac931758f151a}} 
+Gtk\+Widget $\ast$ {\bfseries secondbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_abd0039f691870c0e61fce25c2154df07}\label{main_8cpp_abd0039f691870c0e61fce25c2154df07}} 
+Gtk\+Widget $\ast$ {\bfseries thirdtbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_aea2343deb8346bb5641f52b9dd08ed09}\label{main_8cpp_aea2343deb8346bb5641f52b9dd08ed09}} 
+Gtk\+Widget $\ast$ {\bfseries fourbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_acf28fa974aa0abb42f648c37eccc3214}\label{main_8cpp_acf28fa974aa0abb42f648c37eccc3214}} 
+Gtk\+Widget $\ast$ {\bfseries fivebut}
+\item 
+\mbox{\Hypertarget{main_8cpp_ab022881f8d70afe09f9dfb1d4006ec5e}\label{main_8cpp_ab022881f8d70afe09f9dfb1d4006ec5e}} 
+Gtk\+Widget $\ast$ {\bfseries sixbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_a77bd36092ed321ef75332118de6a6fbd}\label{main_8cpp_a77bd36092ed321ef75332118de6a6fbd}} 
+Gtk\+Widget $\ast$ {\bfseries sevenbut}
+\item 
+\mbox{\Hypertarget{main_8cpp_ae493181272fa9ab0f26074f3d55fa27a}\label{main_8cpp_ae493181272fa9ab0f26074f3d55fa27a}} 
+int {\bfseries xsize}
+\item 
+\mbox{\Hypertarget{main_8cpp_ac70272affec5182515dd40abe4c39f80}\label{main_8cpp_ac70272affec5182515dd40abe4c39f80}} 
+int {\bfseries ysize}
+\item 
+\mbox{\Hypertarget{main_8cpp_ac5468ec7b5d8c1fc11b9a38cb7f8b848}\label{main_8cpp_ac5468ec7b5d8c1fc11b9a38cb7f8b848}} 
+\hyperlink{classVideoPlayer}{Video\+Player} {\bfseries video\+Player}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Main file Base of G\+UI using gtk and all methods involve this one. 
+
+\begin{DoxyAuthor}{Author}
+Adrian Lopez 
+\end{DoxyAuthor}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_a7de348312f7339acc7b7a506b7d3d493}\label{main_8cpp_a7de348312f7339acc7b7a506b7d3d493}} 
+\index{main.\+cpp@{main.\+cpp}!actualizarbotones@{actualizarbotones}}
+\index{actualizarbotones@{actualizarbotones}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{actualizarbotones()}{actualizarbotones()}}
+{\footnotesize\ttfamily void actualizarbotones (\begin{DoxyParamCaption}\item[{int}]{pagenum }\end{DoxyParamCaption})}
+
+This function is called to update buttons in window 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em pagenum} & Number of page that the app is in \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_acfe676ca406b6984aa57225a53635726}\label{main_8cpp_acfe676ca406b6984aa57225a53635726}} 
+\index{main.\+cpp@{main.\+cpp}!clickedbut@{clickedbut}}
+\index{clickedbut@{clickedbut}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{clickedbut()}{clickedbut()}}
+{\footnotesize\ttfamily void clickedbut (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{widget,  }\item[{Gdk\+Event\+Key $\ast$}]{event,  }\item[{\hyperlink{classPagina}{Pagina} $\ast$}]{actual }\end{DoxyParamCaption})}
+
+This function is called when the number buttons are clicked. If clicked the number of page and the numbers should be updates. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\+Gtk\+Widget} & window \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ev} & evt scroll \\
+\hline
+\mbox{\tt in}  & {\em $\ast$actual} & \hyperlink{classPagina}{Pagina} data passed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.\+cpp@{main.\+cpp}!main@{main}}
+\index{main@{main}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+This function main Create linked list for allocating csv
+
+Load Gtk\+Widgets and Gui Variables
+
+Read from all C\+SV and save it to linked list
+
+Calculate number of movies that can be fitted
+
+Zoom in, update movies list and the pages
+
+Pages buttons
+
+Callbacks\mbox{\Hypertarget{main_8cpp_a5c600e22ad7fbf94b8f4a1d33a60c9c9}\label{main_8cpp_a5c600e22ad7fbf94b8f4a1d33a60c9c9}} 
+\index{main.\+cpp@{main.\+cpp}!memory\+\_\+display@{memory\+\_\+display}}
+\index{memory\+\_\+display@{memory\+\_\+display}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{memory\+\_\+display()}{memory\_display()}}
+{\footnotesize\ttfamily void memory\+\_\+display (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+This function is to show memory Memory display\mbox{\Hypertarget{main_8cpp_aed790d10ca098077e9ebe0800417c6b1}\label{main_8cpp_aed790d10ca098077e9ebe0800417c6b1}} 
+\index{main.\+cpp@{main.\+cpp}!num\+\_\+moviex@{num\+\_\+moviex}}
+\index{num\+\_\+moviex@{num\+\_\+moviex}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{num\+\_\+moviex()}{num\_moviex()}}
+{\footnotesize\ttfamily int num\+\_\+moviex (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+width,  }\item[{int}]{espacios,  }\item[{int}]{x\+\_\+space\+\_\+in\+\_\+between,  }\item[{int}]{movie\+\_\+width }\end{DoxyParamCaption})}
+
+This function is called to calculate with the ecuation the number of movies in x 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em window} & width \\
+\hline
+\mbox{\tt in}  & {\em espacios} & \\
+\hline
+\mbox{\tt in}  & {\em x\+\_\+space\+\_\+in\+\_\+between} & \\
+\hline
+\mbox{\tt in}  & {\em movie\+\_\+width} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_a250e8f33d3c7e9fd6a649622a8ed0df1}\label{main_8cpp_a250e8f33d3c7e9fd6a649622a8ed0df1}} 
+\index{main.\+cpp@{main.\+cpp}!num\+\_\+moviey@{num\+\_\+moviey}}
+\index{num\+\_\+moviey@{num\+\_\+moviey}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{num\+\_\+moviey()}{num\_moviey()}}
+{\footnotesize\ttfamily int num\+\_\+moviey (\begin{DoxyParamCaption}\item[{int}]{window\+\_\+height,  }\item[{int}]{espacios,  }\item[{int}]{y\+\_\+space\+\_\+in\+\_\+between,  }\item[{int}]{movie\+\_\+height }\end{DoxyParamCaption})}
+
+This function is called to calculate with the ecuation the number of movies in y 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em window} & height \\
+\hline
+\mbox{\tt in}  & {\em espacios} & \\
+\hline
+\mbox{\tt in}  & {\em y\+\_\+space\+\_\+in\+\_\+between} & \\
+\hline
+\mbox{\tt in}  & {\em movie\+\_\+height} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{main_8cpp_aaf5df1469a7fca132c70c044bb069881}\label{main_8cpp_aaf5df1469a7fca132c70c044bb069881}} 
+\index{main.\+cpp@{main.\+cpp}!on\+\_\+key\+\_\+press@{on\+\_\+key\+\_\+press}}
+\index{on\+\_\+key\+\_\+press@{on\+\_\+key\+\_\+press}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{on\+\_\+key\+\_\+press()}{on\_key\_press()}}
+{\footnotesize\ttfamily void on\+\_\+key\+\_\+press (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{widget,  }\item[{Gdk\+Event\+Key $\ast$}]{event,  }\item[{\hyperlink{classPagina}{Pagina} $\ast$}]{actual }\end{DoxyParamCaption})}
+
+This function is called when the butttons o or i are pressed 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\+Gtk\+Widget} & window \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ev} & evt scroll \\
+\hline
+\mbox{\tt in}  & {\em $\ast$actual} & \hyperlink{classPagina}{Pagina} data passed \\
+\hline
+\end{DoxyParams}
+Zoom out, update movies list and the pages
+
+Zoom in, update movies list and the pages\mbox{\Hypertarget{main_8cpp_a1de7958c7d502bd728636a5f620c8a87}\label{main_8cpp_a1de7958c7d502bd728636a5f620c8a87}} 
+\index{main.\+cpp@{main.\+cpp}!resize\+\_\+cb@{resize\+\_\+cb}}
+\index{resize\+\_\+cb@{resize\+\_\+cb}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{resize\+\_\+cb()}{resize\_cb()}}
+{\footnotesize\ttfamily gboolean resize\+\_\+cb (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{window,  }\item[{Gdk\+Event $\ast$}]{ev,  }\item[{\hyperlink{classPagina}{Pagina} $\ast$}]{actual }\end{DoxyParamCaption})}
+
+This function is called when the window is resized. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\+Gtk\+Widget} & window \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ev} & evt scroll \\
+\hline
+\mbox{\tt in}  & {\em $\ast$actual} & \hyperlink{classPagina}{Pagina} data passed \\
+\hline
+\end{DoxyParams}
+if resized slow resized and update the movies list and the the pages so the window change\mbox{\Hypertarget{main_8cpp_a35fc1462889071dbf3a82f4806c5fde9}\label{main_8cpp_a35fc1462889071dbf3a82f4806c5fde9}} 
+\index{main.\+cpp@{main.\+cpp}!scroll\+\_\+cb@{scroll\+\_\+cb}}
+\index{scroll\+\_\+cb@{scroll\+\_\+cb}!main.\+cpp@{main.\+cpp}}
+\subsubsection{\texorpdfstring{scroll\+\_\+cb()}{scroll\_cb()}}
+{\footnotesize\ttfamily void scroll\+\_\+cb (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{window,  }\item[{Gdk\+Event $\ast$}]{ev,  }\item[{\hyperlink{classPagina}{Pagina} $\ast$}]{actual }\end{DoxyParamCaption})}
+
+This function is called if a scroll event is detected on screen 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$window} & Gtk\+Widget \\
+\hline
+\mbox{\tt in}  & {\em $\ast$ev} & evt scroll \\
+\hline
+\mbox{\tt in}  & {\em $\ast$actual} & \hyperlink{classPagina}{Pagina} data passed \\
+\hline
+\end{DoxyParams}
+Scroll up
+
+Mover hacia arriba y si la pagina sube lo suficiente actualiza y cambia de pagina
+
+Scroll down
+
+Mover hacia abajo y si la pagina baja lo suficiente actualiza y cambia de pagina

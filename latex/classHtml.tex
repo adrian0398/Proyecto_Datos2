@@ -1,0 +1,124 @@
+\hypertarget{classHtml}{}\section{Html Class Reference}
+\label{classHtml}\index{Html@{Html}}
+
+
+{\ttfamily \#include $<$Html.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{classHtml_af19deb416237f9fac884e972f40e8e8b}{get\+\_\+url} (string Imbdlink, string name)
+\item 
+string \hyperlink{classHtml_a1fecec3000afdb11da16bcf956b3bcc6}{get\+\_\+pic} (string response\+\_\+string, string name)
+\item 
+string \hyperlink{classHtml_ac2127449a2206dd13c3afc49d1309a3d}{get\+\_\+summary} (string response\+\_\+string)
+\item 
+string \hyperlink{classHtml_a64b0ceb41fe7a760a6fbea7db58232fa}{get\+\_\+video\+\_\+url} (string response\+\_\+string)
+\item 
+void \hyperlink{classHtml_ad67363a1fdd7087ff74b1d20e12bd157}{get\+\_\+video\+\_\+trailer} (string response\+\_\+string)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static size\+\_\+t \hyperlink{classHtml_a08bdc1d0e3fc60c4d12304e0dad1c302}{write\+Function} (void $\ast$ptr, size\+\_\+t size, size\+\_\+t nmemb, std\+::string $\ast$data)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This class uses the I\+M\+BD link of the movies to search for the poster, the summary and the video 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classHtml_a1fecec3000afdb11da16bcf956b3bcc6}\label{classHtml_a1fecec3000afdb11da16bcf956b3bcc6}} 
+\index{Html@{Html}!get\+\_\+pic@{get\+\_\+pic}}
+\index{get\+\_\+pic@{get\+\_\+pic}!Html@{Html}}
+\subsubsection{\texorpdfstring{get\+\_\+pic()}{get\_pic()}}
+{\footnotesize\ttfamily string Html\+::get\+\_\+pic (\begin{DoxyParamCaption}\item[{string}]{response\+\_\+string,  }\item[{string}]{name }\end{DoxyParamCaption})}
+
+This function is called to get pic from U\+RL 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em response\+\_\+string} & U\+RL to search \\
+\hline
+\mbox{\tt in}  & {\em name} & of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string pic 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHtml_ac2127449a2206dd13c3afc49d1309a3d}\label{classHtml_ac2127449a2206dd13c3afc49d1309a3d}} 
+\index{Html@{Html}!get\+\_\+summary@{get\+\_\+summary}}
+\index{get\+\_\+summary@{get\+\_\+summary}!Html@{Html}}
+\subsubsection{\texorpdfstring{get\+\_\+summary()}{get\_summary()}}
+{\footnotesize\ttfamily string Html\+::get\+\_\+summary (\begin{DoxyParamCaption}\item[{string}]{response\+\_\+string }\end{DoxyParamCaption})}
+
+This function is called to get summary from U\+RL 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em response\+\_\+string} & U\+RL to search \\
+\hline
+\mbox{\tt in}  & {\em name} & of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string summary 
+\end{DoxyReturn}
+Use regex to parse the string\mbox{\Hypertarget{classHtml_af19deb416237f9fac884e972f40e8e8b}\label{classHtml_af19deb416237f9fac884e972f40e8e8b}} 
+\index{Html@{Html}!get\+\_\+url@{get\+\_\+url}}
+\index{get\+\_\+url@{get\+\_\+url}!Html@{Html}}
+\subsubsection{\texorpdfstring{get\+\_\+url()}{get\_url()}}
+{\footnotesize\ttfamily string Html\+::get\+\_\+url (\begin{DoxyParamCaption}\item[{string}]{Imbdlink,  }\item[{string}]{name }\end{DoxyParamCaption})}
+
+This function is called to get url from U\+RL 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em nam} & of the movie \\
+\hline
+\mbox{\tt in}  & {\em Imbdlink} & to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string url 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classHtml_ad67363a1fdd7087ff74b1d20e12bd157}\label{classHtml_ad67363a1fdd7087ff74b1d20e12bd157}} 
+\index{Html@{Html}!get\+\_\+video\+\_\+trailer@{get\+\_\+video\+\_\+trailer}}
+\index{get\+\_\+video\+\_\+trailer@{get\+\_\+video\+\_\+trailer}!Html@{Html}}
+\subsubsection{\texorpdfstring{get\+\_\+video\+\_\+trailer()}{get\_video\_trailer()}}
+{\footnotesize\ttfamily void Html\+::get\+\_\+video\+\_\+trailer (\begin{DoxyParamCaption}\item[{string}]{response\+\_\+string }\end{DoxyParamCaption})}
+
+This function is called to get video trailer from U\+RL 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$response\+\_\+string} & U\+RL to search \\
+\hline
+\mbox{\tt in}  & {\em $\ast$name} & of the movie \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string video\+\_\+trailer 
+\end{DoxyReturn}
+Open file and get video and download it\mbox{\Hypertarget{classHtml_a64b0ceb41fe7a760a6fbea7db58232fa}\label{classHtml_a64b0ceb41fe7a760a6fbea7db58232fa}} 
+\index{Html@{Html}!get\+\_\+video\+\_\+url@{get\+\_\+video\+\_\+url}}
+\index{get\+\_\+video\+\_\+url@{get\+\_\+video\+\_\+url}!Html@{Html}}
+\subsubsection{\texorpdfstring{get\+\_\+video\+\_\+url()}{get\_video\_url()}}
+{\footnotesize\ttfamily string Html\+::get\+\_\+video\+\_\+url (\begin{DoxyParamCaption}\item[{string}]{response\+\_\+string }\end{DoxyParamCaption})}
+
+This function is called to get video trailer from U\+RL 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$response\+\_\+string} & U\+RL to search \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string video url 
+\end{DoxyReturn}
+Use regex to get parts between href and video
+
+Cut video position using regex
+
+Use J\+Son to parse and get substring\mbox{\Hypertarget{classHtml_a08bdc1d0e3fc60c4d12304e0dad1c302}\label{classHtml_a08bdc1d0e3fc60c4d12304e0dad1c302}} 
+\index{Html@{Html}!write\+Function@{write\+Function}}
+\index{write\+Function@{write\+Function}!Html@{Html}}
+\subsubsection{\texorpdfstring{write\+Function()}{writeFunction()}}
+{\footnotesize\ttfamily static size\+\_\+t Html\+::write\+Function (\begin{DoxyParamCaption}\item[{void $\ast$}]{ptr,  }\item[{size\+\_\+t}]{size,  }\item[{size\+\_\+t}]{nmemb,  }\item[{std\+::string $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+This function is called to write to a string to make a html get request. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Html_8h}{Html.\+h}\item 
+\hyperlink{Html_8cpp}{Html.\+cpp}\end{DoxyCompactItemize}

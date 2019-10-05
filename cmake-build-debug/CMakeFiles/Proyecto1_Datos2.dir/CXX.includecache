@@ -84,10 +84,6 @@ sstream
 config.h
 .././include/json/config.h
 
-/home/adrian/CLionProjects/Proyecto1_Datos2/Html.cpp
-Html.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Html.h
-
 /home/adrian/CLionProjects/Proyecto1_Datos2/Html.h
 iostream
 -
@@ -102,19 +98,11 @@ json/json.h
 gtk/gtk.h
 -
 
-/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.cpp
-Linkedlist.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
-
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 string
 -
 iostream
 -
-
-/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.cpp
-Movie.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
 string
@@ -128,10 +116,6 @@ Html.h
 Linkedlist.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Linkedlist.h
 
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.cpp
-MovieComponent.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
-
 /home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
 gtk/gtk.h
 -
@@ -139,12 +123,6 @@ Movie.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/Movie.h
 VideoPlayer.h
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
-
-/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.cpp
-Pagina.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
-MovieComponent.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/MovieComponent.h
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/Pagina.h
 iostream
@@ -157,10 +135,6 @@ list
 -
 boost/filesystem.hpp
 -
-
-/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.cpp
-VideoPlayer.h
-/home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
 
 /home/adrian/CLionProjects/Proyecto1_Datos2/VideoPlayer.h
 gtk/gtk.h

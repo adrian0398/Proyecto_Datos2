@@ -1,0 +1,62 @@
+\hypertarget{classLinkedlist}{}\section{Linkedlist Class Reference}
+\label{classLinkedlist}\index{Linkedlist@{Linkedlist}}
+
+
+{\ttfamily \#include $<$Linkedlist.\+h$>$}
+
+
+
+Collaboration diagram for Linkedlist\+:
+% FIG 0
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{classLinkedlist_aecfdea55f47b4cbafe133f369a365d05}{insert} (string new\+\_\+data, string year, string I\+M\+B\+Dlink, string ranking, string director)
+\item 
+void \hyperlink{classLinkedlist_a7c1e0cce43f358b38099bd1954456ad9}{search} (string value)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classLinkedlist_aae08a12e77164b25e993b0791c5aa7e0}\label{classLinkedlist_aae08a12e77164b25e993b0791c5aa7e0}} 
+\hyperlink{classNode}{Node} $\ast$ {\bfseries head} = new \hyperlink{classNode}{Node}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Linked list to save all the movies get from the csv 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinkedlist_aecfdea55f47b4cbafe133f369a365d05}\label{classLinkedlist_aecfdea55f47b4cbafe133f369a365d05}} 
+\index{Linkedlist@{Linkedlist}!insert@{insert}}
+\index{insert@{insert}!Linkedlist@{Linkedlist}}
+\subsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily void Linkedlist\+::insert (\begin{DoxyParamCaption}\item[{string}]{new\+\_\+data,  }\item[{string}]{year,  }\item[{string}]{I\+M\+B\+Dlink,  }\item[{string}]{ranking,  }\item[{string}]{director }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to insert at the end of the list. Pass movie data and make a node that saves all of it\textquotesingle{}s info 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em newdata} & name of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em year} & year of the movie to be inserted \\
+\hline
+\mbox{\tt in}  & {\em I\+M\+B\+Dlink} & I\+M\+DB link to search the url elements \\
+\hline
+\mbox{\tt in}  & {\em director} & director of the movie to be inserted \\
+\hline
+\end{DoxyParams}
+Move through the list to the last that is N\+U\+LL\mbox{\Hypertarget{classLinkedlist_a7c1e0cce43f358b38099bd1954456ad9}\label{classLinkedlist_a7c1e0cce43f358b38099bd1954456ad9}} 
+\index{Linkedlist@{Linkedlist}!search@{search}}
+\index{search@{search}!Linkedlist@{Linkedlist}}
+\subsubsection{\texorpdfstring{search()}{search()}}
+{\footnotesize\ttfamily void Linkedlist\+::search (\begin{DoxyParamCaption}\item[{string}]{value }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Linked list method to search a string value Use tmp node to search the node 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em value} & value to be searched in the list \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Linkedlist_8h}{Linkedlist.\+h}\end{DoxyCompactItemize}

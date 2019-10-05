@@ -44,3 +44,18 @@ target_link_libraries(Proyecto1_Datos2  gstvideo-1.0)
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

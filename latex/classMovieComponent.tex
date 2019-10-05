@@ -1,0 +1,92 @@
+\hypertarget{classMovieComponent}{}\section{Movie\+Component Class Reference}
+\label{classMovieComponent}\index{Movie\+Component@{Movie\+Component}}
+
+
+{\ttfamily \#include $<$Movie\+Component.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Gtk\+Widget $\ast$ \hyperlink{classMovieComponent_ae7f41fdb7d5e25fe4fd9875d43bce685}{newmovie\+\_\+box} (\hyperlink{classMovie__node}{Movie\+\_\+node} $\ast$movie, int prefwidth)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \hyperlink{classMovieComponent_aca8fc8b09e090478bb590ecebb88a6c3}{clicked} (Gtk\+Widget $\ast$widget, gpointer $\ast$data)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Gtk\+Widget $\ast$ \hyperlink{classMovieComponent_a304b93d11fe9f4e6e6effc4244592a7a}{movie\+\_\+name}
+\item 
+Gtk\+Widget $\ast$ \hyperlink{classMovieComponent_ac8de14a84c32db1e8bbdc5b004d8730b}{movie\+\_\+image}
+\item 
+Gtk\+Widget $\ast$ \hyperlink{classMovieComponent_a670093104aa5c8c5826ae1c7e0d05007}{movie\+\_\+year}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Component to display poster, year and title of the movie 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMovieComponent_aca8fc8b09e090478bb590ecebb88a6c3}\label{classMovieComponent_aca8fc8b09e090478bb590ecebb88a6c3}} 
+\index{Movie\+Component@{Movie\+Component}!clicked@{clicked}}
+\index{clicked@{clicked}!Movie\+Component@{Movie\+Component}}
+\subsubsection{\texorpdfstring{clicked()}{clicked()}}
+{\footnotesize\ttfamily static void Movie\+Component\+::clicked (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{widget,  }\item[{gpointer $\ast$}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+If the movie is clicked open videoplayer and display info and stream it\textquotesingle{}s video
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$widget} & Main window widget to display the info and video \\
+\hline
+\mbox{\tt in}  & {\em $\ast$data} & data passed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classMovieComponent_ae7f41fdb7d5e25fe4fd9875d43bce685}\label{classMovieComponent_ae7f41fdb7d5e25fe4fd9875d43bce685}} 
+\index{Movie\+Component@{Movie\+Component}!newmovie\+\_\+box@{newmovie\+\_\+box}}
+\index{newmovie\+\_\+box@{newmovie\+\_\+box}!Movie\+Component@{Movie\+Component}}
+\subsubsection{\texorpdfstring{newmovie\+\_\+box()}{newmovie\_box()}}
+{\footnotesize\ttfamily Gtk\+Widget $\ast$ Movie\+Component\+::newmovie\+\_\+box (\begin{DoxyParamCaption}\item[{\hyperlink{classMovie__node}{Movie\+\_\+node} $\ast$}]{movie,  }\item[{int}]{prefwidth }\end{DoxyParamCaption})}
+
+if the movie is clicked open videoplayer and display info and stream it\textquotesingle{}s video
+
+This function is called to create the movie box with the year, image and name 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em $\ast$\+Movie\+\_\+node} & This is the movie node that the method uses to optain all important parameters of the movie and display it \\
+\hline
+\mbox{\tt in}  & {\em prefwidth} & the width that is preffered to set in the main window and it scales the height based on this parameter \\
+\hline
+\end{DoxyParams}
+Cpix buf to allocate image
+
+Text properties to be display and sizes
+
+Put data to the object in order to identify it\textquotesingle{}s callback
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classMovieComponent_ac8de14a84c32db1e8bbdc5b004d8730b}\label{classMovieComponent_ac8de14a84c32db1e8bbdc5b004d8730b}} 
+\index{Movie\+Component@{Movie\+Component}!movie\+\_\+image@{movie\+\_\+image}}
+\index{movie\+\_\+image@{movie\+\_\+image}!Movie\+Component@{Movie\+Component}}
+\subsubsection{\texorpdfstring{movie\+\_\+image}{movie\_image}}
+{\footnotesize\ttfamily Gtk\+Widget$\ast$ Movie\+Component\+::movie\+\_\+image}
+
+widget to display image \mbox{\Hypertarget{classMovieComponent_a304b93d11fe9f4e6e6effc4244592a7a}\label{classMovieComponent_a304b93d11fe9f4e6e6effc4244592a7a}} 
+\index{Movie\+Component@{Movie\+Component}!movie\+\_\+name@{movie\+\_\+name}}
+\index{movie\+\_\+name@{movie\+\_\+name}!Movie\+Component@{Movie\+Component}}
+\subsubsection{\texorpdfstring{movie\+\_\+name}{movie\_name}}
+{\footnotesize\ttfamily Gtk\+Widget$\ast$ Movie\+Component\+::movie\+\_\+name}
+
+widget to display name \mbox{\Hypertarget{classMovieComponent_a670093104aa5c8c5826ae1c7e0d05007}\label{classMovieComponent_a670093104aa5c8c5826ae1c7e0d05007}} 
+\index{Movie\+Component@{Movie\+Component}!movie\+\_\+year@{movie\+\_\+year}}
+\index{movie\+\_\+year@{movie\+\_\+year}!Movie\+Component@{Movie\+Component}}
+\subsubsection{\texorpdfstring{movie\+\_\+year}{movie\_year}}
+{\footnotesize\ttfamily Gtk\+Widget$\ast$ Movie\+Component\+::movie\+\_\+year}
+
+widget to display year 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{MovieComponent_8h}{Movie\+Component.\+h}\item 
+\hyperlink{MovieComponent_8cpp}{Movie\+Component.\+cpp}\end{DoxyCompactItemize}

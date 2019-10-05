@@ -1,0 +1,23 @@
+digraph "Html.h"
+{
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  Node7 [label="Html.h",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black"];
+  Node7 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="Html.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Html_8cpp.html",tooltip="File containing methods to get Html get request from Imdb. "];
+  Node7 -> Node9 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node9 [label="Movie.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Movie_8h.html",tooltip="File for using linked list to save movie nodes. "];
+  Node9 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node10 [label="main.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8cpp.html",tooltip="Main file Base of GUI using gtk and all methods involve this one. "];
+  Node9 -> Node11 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 [label="MovieComponent.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MovieComponent_8h.html",tooltip="Header file to declare methods of the Movie Component. "];
+  Node11 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node11 -> Node12 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node12 [label="MovieComponent.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$MovieComponent_8cpp.html",tooltip="Gui movie componet for seing details of the movie. "];
+  Node11 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node13 [label="Pagina.cpp",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Pagina_8cpp.html",tooltip="File containing methods of Pagina. "];
+  Node9 -> Node14 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 [label="Pagina.h",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Pagina_8h.html",tooltip="Header file of Pagina that contains the methods that are used to manipulate pages. "];
+  Node14 -> Node10 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node14 -> Node13 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

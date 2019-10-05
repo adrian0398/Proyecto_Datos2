@@ -1,0 +1,30 @@
+\hypertarget{Html_8cpp}{}\section{Html.\+cpp File Reference}
+\label{Html_8cpp}\index{Html.\+cpp@{Html.\+cpp}}
+
+
+File containing methods to get \hyperlink{classHtml}{Html} get request from Imdb.  
+
+
+{\ttfamily \#include \char`\"{}Html.\+h\char`\"{}}\newline
+Include dependency graph for Html.\+cpp\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Html_8cpp_af87cf600b1470b202b8edae1670d9d6f}\label{Html_8cpp_af87cf600b1470b202b8edae1670d9d6f}} 
+string {\bfseries get\+\_\+summary} (string response\+\_\+string)
+\item 
+\mbox{\Hypertarget{Html_8cpp_a61e9127bdfd36a01c838fd53edfc20c6}\label{Html_8cpp_a61e9127bdfd36a01c838fd53edfc20c6}} 
+string {\bfseries get\+\_\+video\+\_\+url} (string response\+\_\+string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+File containing methods to get \hyperlink{classHtml}{Html} get request from Imdb. 
+
+\begin{DoxyAuthor}{Author}
+Adrian Lopez 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+15 Set 2019 Usage of curl library to read and parse strings to obtain url to images, video and summary. 
+\end{DoxyDate}
