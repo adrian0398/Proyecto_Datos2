@@ -17,7 +17,12 @@
 
 
 #include "Html.h"
-
+/*!
+This function is called to get url from URL
+ @param[in]  nam of the movie
+@param[in]  Imbdlink to search
+@return string url
+*/
 
 string Html::get_url(string Imbdlink, string name){
     CURL *curl; //our curl object
@@ -37,6 +42,12 @@ string Html::get_url(string Imbdlink, string name){
 
 }
 
+/*!
+This function is called to get pic from URL
+@param[in]  response_string   URL to search
+ @param[in]  name of the movie
+ @return string pic
+*/
 string Html::get_pic(string response_string, string name){
     string movie_link = "";
 
@@ -93,11 +104,22 @@ string Html::get_pic(string response_string, string name){
     return imagename;
 }
 
+/*!
+This function is called to get summary from URL
+@param[in]  response_string   URL to search
+ @param[in]  name of the movie
+ @return string summary
+*/
+
 string Html::get_summary(string response_string){
     std::string s(response_string);
 
     std::smatch m1;
     std::regex e1(
+
+/*!
+Use regex to parse the string
+*/
             "\\b(summary)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?>@\\^_`{|}~\\-\\ ]+(.)\\b");   // matches words beginning by "sub"
 
 
@@ -114,10 +136,21 @@ string Html::get_summary(string response_string){
     return movie_history;
 }
 
+string get_summary(string response_string);
+/*!
+This function is called to get video trailer from URL
+@param[in]  *response_string   URL to search
+ @return string video url
+*/
 string Html::get_video_url(string response_string){
     string data="";
     std::string s(response_string);
     std::smatch m2;
+
+
+/*!
+Use regex to get parts between href and video
+*/
     std::regex e2 ("\\b(href)[a-zA-Z0-9_\"':\\t\\r\\n\\v\\f!#$%&()*+,./:;=?>@\\^_`{|}~\\-\\ ]+(video)\\b");   // matches words beginning by "sub"
 
 
@@ -145,7 +178,7 @@ string Html::get_video_url(string response_string){
 
     if(curl1) {
         curl_easy_setopt(curl1, CURLOPT_URL, movie_video.c_str());
-        //**//* example.com is redirected, so we tell libcurl to follow redirection *//**//*
+
         curl_easy_setopt(curl1, CURLOPT_WRITEFUNCTION, Html::writeFunction);
 
         curl_easy_setopt(curl1, CURLOPT_WRITEDATA, &data);
@@ -159,6 +192,10 @@ string Html::get_video_url(string response_string){
         curl_global_cleanup();
     }
 
+
+/*!
+Cut video position using regex
+*/
 
     string movie_video_ultimate="";
     std::string s3 (data);
@@ -174,6 +211,9 @@ string Html::get_video_url(string response_string){
     movie_video_ultimate= movie_video_ultimate.replace(0,34,"");
 
 
+/*!
+Use JSon to parse and get substring
+*/
 
     Json::Value root;
     Json::Reader reader;
@@ -207,6 +247,14 @@ string Html::get_video_url(string response_string){
     return  myname6.asString();
 }
 
+string get_video_url(string response_string);
+
+/*!
+This function is called to get video trailer from URL
+@param[in]  *response_string   URL to search
+ @param[in]  *name of the movie
+ @return string video_trailer
+*/
 void Html::get_video_trailer(string response_string ){
 
     CURL *video;
@@ -218,6 +266,9 @@ void Html::get_video_trailer(string response_string ){
     {
 
 
+/*!
+Open file and get video and download it
+*/
         // Open file
         fp1 = fopen("trailer.mp4", "wb");
         if (fp1 == NULL) cout << "File cannot be opened";

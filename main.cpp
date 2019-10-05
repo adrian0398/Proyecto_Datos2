@@ -39,22 +39,24 @@ VideoPlayer videoPlayer;
 void memory_display();
 
 
-void next_clicked(GtkWidget* window, GdkEvent* ev, gpointer userdata)
-{
-    g_print ("next");
-}
-
-void previous_clicked(GtkWidget* window, GdkEvent* ev, gpointer userdata)
-{
-    g_print ("previous");
-}
+/*!
+This function is called if a scroll event is detected on screen
+@param[in]  *window  GtkWidget
+@param[in]  *ev   evt scroll
+ @param[in]  *actual   Pagina data passed
+*/
 
 void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 {
     if (firstime==0){
         actual->draw2();
     }
+
     memory_display();
+
+    /**
+* Scroll up
+*/
     if(ev->scroll.direction==0){
 
 
@@ -62,6 +64,10 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 
         for(int i=0;i<g_list_length(actual->getChildren());i++){
 
+
+            /**
+* Mover hacia arriba y si la pagina sube lo suficiente actualiza y cambia de pagina
+*/
 
             GValue x =  G_VALUE_INIT;
             GValue y =  G_VALUE_INIT;
@@ -88,6 +94,10 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
         gtk_widget_show_all(actual->getFixed());
 
 }
+
+    /**
+* Scroll down
+*/
     if(ev->scroll.direction==1) {
         g_print("scrolled down");
 
@@ -103,7 +113,9 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
 
             gtk_fixed_move(GTK_FIXED(actual->getFixed()),GTK_WIDGET(g_list_nth_data(actual->getChildren(),i)),x.data->v_int,y.data->v_int-10);
 
-
+            /**
+* Mover hacia abajo y si la pagina baja lo suficiente actualiza y cambia de pagina
+*/
 
         }
 
@@ -123,10 +135,18 @@ void scroll_cb(GtkWidget* window, GdkEvent* ev,Pagina* actual)
     firstime=1;
 }
 
+/*!
+This function is called when the window is resized.
+@param[in]  *GtkWidget  window
+@param[in]  *ev   evt scroll
+ @param[in]  *actual   Pagina data passed
+*/
 gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
 {
     firstime=0;
-
+    /**
+* if resized slow resized and update the movies list and the the pages so the window change
+*/
     if (abs(gtk_widget_get_allocated_width(window)-xsize)>100||abs(gtk_widget_get_allocated_height(window)-ysize)>100){
 
        cout<<"resize"<<endl;
@@ -160,9 +180,15 @@ gboolean resize_cb(GtkWidget* window, GdkEvent* ev, Pagina* actual)
 
 }
 
-
+/*!
+This function is to show memory
+*/
 
 void memory_display() {
+
+    /**
+* Memory display
+*/
     int tSize = 0, resident = 0, share = 0;
     ifstream buffer("/proc/self/statm");
     buffer >> tSize >> resident >> share;
@@ -176,6 +202,13 @@ void memory_display() {
     gtk_label_set_text(GTK_LABEL(memorylbl), memorydip.c_str());
 }
 
+/*!
+This function is called when the butttons o or i are pressed
+@param[in]  *GtkWidget  window
+@param[in]  *ev   evt scroll
+ @param[in]  *actual   Pagina data passed
+*/
+
 void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
     firstime=0;
     memory_display();
@@ -188,6 +221,9 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
     int y_space_in_between;
     int movie_height;
     switch (event->keyval) {
+        /**
+* Zoom out, update movies list and the pages
+*/
         case GDK_KEY_o:
             printf("key pressed: %s\n", "zoom out");
             window_width=actual->getWindowWidth();
@@ -213,6 +249,10 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
             gtk_widget_show_all(actual->getFixed());
 
             break;
+
+            /**
+* Zoom in, update movies list and the pages
+*/
         case GDK_KEY_i:
             printf("key pressed: %s\n", "zoom in");
 
@@ -243,17 +283,34 @@ void on_key_press (GtkWidget *widget, GdkEventKey *event, Pagina* actual) {
     }
 
 }
-
+/*!
+This function is called to calculate with the ecuation the number of movies in x
+@param[in]  window width
+@param[in]  espacios
+ @param[in]  x_space_in_between
+@param[in]  movie_width
+*/
 int num_moviex(int window_width,int espacios,int x_space_in_between, int movie_width){
     int moviesinx=floor((window_width-(2*espacios)+x_space_in_between)/(x_space_in_between+movie_width));
     return moviesinx;
-}
 
+}
+/*!
+This function is called to calculate with the ecuation the number of movies in y
+@param[in]  window height
+@param[in]  espacios
+ @param[in]  y_space_in_between
+@param[in]  movie_height
+*/
 int num_moviey(int window_height,int espacios,int y_space_in_between, int movie_height){
     int moviesiny=floor((window_height-(2*espacios)+y_space_in_between)/(y_space_in_between+movie_height));
     return moviesiny;
 }
+/*!
+This function is called to update buttons in window
+@param[in]  pagenum  Number of page that the app is in
 
+*/
 void actualizarbotones(int pagenum) {
     if (pagenum < 5) {
         GdkColor color;
@@ -278,7 +335,13 @@ void actualizarbotones(int pagenum) {
         gtk_button_set_label(GTK_BUTTON(sevenbut), std::to_string(pagenum + 3).c_str());
     }
 }
-
+/*!
+This function is called when the number buttons are clicked.
+ *If clicked the number of page and the numbers should be updates.
+@param[in]  *GtkWidget  window
+@param[in]  *ev   evt scroll
+ @param[in]  *actual   Pagina data passed
+*/
 void clickedbut(GtkWidget *widget, GdkEventKey *event, Pagina* actual){
 cout<<"pulsado+++++++++++++++++00"<<gtk_button_get_label(GTK_BUTTON(widget))<<endl;
 int num= atoi( gtk_button_get_label(GTK_BUTTON(widget)));
@@ -294,7 +357,9 @@ actualizarbotones(num);
 
 }
 
-
+/*!
+This function main
+*/
 int main(int argc, char *argv[]) {
     int x_space_in_between;
     int y_space_in_between;
@@ -307,6 +372,9 @@ int main(int argc, char *argv[]) {
     int moviesiny;
     int pagina=1;
 
+    /**
+* Create linked list for allocating csv
+*/
     Linkedlist* l=new Linkedlist;
 
 
@@ -335,7 +403,9 @@ int main(int argc, char *argv[]) {
     gtk_container_add(GTK_CONTAINER (window), layout);
     gtk_widget_show(layout);
 
-
+    /**
+* Load GtkWidgets and Gui Variables
+*/
 
 
 
@@ -369,6 +439,10 @@ int main(int argc, char *argv[]) {
     using namespace std;
 
 
+
+    /**
+* Read from all CSV and save it to linked list
+*/
     ifstream in("movie_metadata_used.csv");
 
 
@@ -407,10 +481,14 @@ int main(int argc, char *argv[]) {
     }
 
 
-
+    /**
+* Calculate number of movies that can be fitted
+*/
     moviesinx=num_moviex(window_width,espacios,x_space_in_between, movie_width);
     moviesiny=num_moviey(window_height,espacios,y_space_in_between, movie_height);
-
+    /**
+* Zoom in, update movies list and the pages
+*/
 
     Pagina* actual=new Pagina(l, x_space_in_between, y_space_in_between, window_height, window_width,
             movie_height, movie_width, espacios, moviesinx, moviesiny, fixed, pagina);
@@ -426,6 +504,9 @@ int main(int argc, char *argv[]) {
     GtkWidget *numbuttons;
     /* Buttons */
 
+    /**
+* Pages buttons
+*/
     firstbut = gtk_button_new();
     secondbut=gtk_button_new();
     thirdtbut = gtk_button_new();
@@ -456,6 +537,10 @@ int main(int argc, char *argv[]) {
     gtk_fixed_put(GTK_FIXED(fixed),memorylbl,350,0);
 
 
+
+    /**
+* Callbacks
+*/
 
     g_signal_connect(window, "scroll-event", G_CALLBACK(scroll_cb), actual);
     g_signal_connect(window, "configure-event", G_CALLBACK(resize_cb), actual);

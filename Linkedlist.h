@@ -53,6 +53,17 @@ private:
         }
     }
 
+    /*!
+*Linked list method to insert at the end of the list.
+* Pass movie data and make a node that saves all of it's info
+@param[in]  newdata   name of the movie to be inserted
+@param[in]  year   year of the movie to be inserted
+@param[in]  IMBDlink   IMDB link to search the url elements
+@param[in]  director   director  of the movie to be inserted
+
+
+*/
+
 public:
     void insert(string new_data, string year, string IMBDlink, string ranking,string director) {
         Node* new_node=new Node;
@@ -70,7 +81,9 @@ public:
             head = new_node;
             return;
         }
-
+/**
+* Move through the list to the last that is NULL
+*/
         while (last->next != NULL)
             last = last->next;
 
@@ -78,6 +91,12 @@ public:
         return;
     }
 
+
+    /*!
+*Linked list method to search a string value
+* Use tmp node to search the node
+@param[in]  value  value to be searched in the list
+*/
     void search(string value){
         Node* tmp=head;
         while (tmp != NULL){
